@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "uvsafety-31dc5": {
+      "hosting": {
+        "app": [
+          "uvsafety-31dc5"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<ion-header no-border>
+  <ion-toolbar color="light">
+    <ion-title text-center>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+<!--img class="icon" src="assets/icon/register.svg" alt=""-->
+<ion-item color="light">
+  <ion-label position="floating" > Nombre Completo</ion-label>
+  <ion-input type="text" [(ngModel)]="name" name="name" placeholder="Ingresa tu nombre completo"></ion-input>
+</ion-item>
+<br><br>
+<ion-item color="light">
+  <ion-label position="floating" class="ion-text-wrap"> Fecha de nacimiento</ion-label>
+  <ion-datetime placeholder="Selecciona tu fecha de nacimiento" displayFormat="DD/MMM/YYYY" [(ngModel)]="birthdate" min="1921-03-11" max="2015-12-15" monthNames="ENE, FEB, MAR, ABR, MAY, JUN, JUL, AGO, SET, OCT, NOV, DIC"></ion-datetime>
+</ion-item>
+<br><br>
+<ion-item color="light">
+  <ion-label position="floating" class="ion-text-wrap"> Género</ion-label>
+  <ion-select placeholder="Selecciona tu género" color="dark" [(ngModel)]="gender">
+    <ion-select-option value="m">Mujer</ion-select-option>
+    <ion-select-option value="h">Hombre</ion-select-option>
+     </ion-select>
+</ion-item>
+<br><br>
+<ion-item color="light">
+  <ion-label position="floating" class="ion-text-wrap"> Tipo de piel</ion-label>
+  <ion-select placeholder="Selecciona tu tipo de piel" color="dark" [(ngModel)]="skin">
+    <ion-select-option value="uno">Blanca, con muchas pecas</ion-select-option>
+    <ion-select-option value="dos">Blanca</ion-select-option>
+    <ion-select-option value="tres">Blanca, mínima tonalidad marrón</ion-select-option>
+    <ion-select-option value="cuatro">Marrón, tonalidad intermedia</ion-select-option>
+    <ion-select-option value="cinco">Marrón intenso</ion-select-option>
+    <ion-select-option value="seis">Negra, tonalidad intensa</ion-select-option>
+  </ion-select>
+</ion-item>
+<br><br>
+<ion-item color="light">
+  <ion-label position="floating" > Correo electrónico</ion-label>
+  <ion-input type="text" [(ngModel)]="email" name="email" placeholder="Correo electrónico"></ion-input>
+</ion-item>
+<br><br>
+<ion-item color="light">
+  <ion-label position="floating" > Contraseña</ion-label>
+  <ion-input  type="password" [(ngModel)]="password" name="password" placeholder="Contraseña"></ion-input>
+</ion-item>
+<br><br>
+ <ion-item color="light">
+  <ion-label position="floating" > Confirmar contraseña</ion-label>  
+  <ion-input type="password" [(ngModel)]="confir_password" name="confir_password" placeholder="Confirmar contraseña"></ion-input> 
+</ion-item>
+
+
+<ion-button color="dark" expand="block" (click)="OnSubmitRegister()" [disabled]="disabledButton">Registrarse</ion-button>
+<br>
+<p class="registertext" text-center routerLink="/login">Ya tengo cuenta</p>
+
+</ion-content>

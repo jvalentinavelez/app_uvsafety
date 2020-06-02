@@ -1,0 +1,7 @@
+{
+  "name": "uvsafety",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

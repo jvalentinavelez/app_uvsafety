@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recordatorios</ion-title>
+    <ion-button slot="end" (click)="returnhome()" fill="white" color="white"> 
+    <ion-icon slot="icon-only" name="home-outline"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <br>
+  <ion-list>
+    <ion-item>
+      <ion-label>Protector solar</ion-label>
+      <ion-toggle (ionChange)="SolarProtNotifications()" ></ion-toggle>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Cuidados personales</ion-label>
+      <ion-toggle (ionChange)="CuidadosPersonalesNotifications()"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

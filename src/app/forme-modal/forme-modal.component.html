@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-button (click)="dismissModal()"> Cerrar
+  </ion-button>
+</ion-header>
+<ion-content>
+
+<ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
+<br><br>
+
+<div *ngIf="noRiesgo">
+  <ion-label floating> En este momento no hay riesgo </ion-label>
+</div>
+
+<div *ngIf="bajo">
+  <ion-label floating> En este momento el índice UV indica un nivel bajo</ion-label>
+  <br>
+  <div class="icon"><img src="../assets/img/gafas.png">
+     <ion-label>Recuerda llevar tus gafas de sol</ion-label>
+  </div>
+  <br>
+  <div class="icon"><img src="../assets/img/protector.png">
+      <ion-label>Recuerda utilizar protector solar</ion-label>
+  </div>
+</div>
+
+<div *ngIf="moderado">
+  <ion-label floating> En este momento el índice UV indica un nivel moderado</ion-label>
+  <br>
+  <div class="icon"><img src="../assets/img/gafas.png">
+      <ion-label>Recuerda llevar tus gafas de sol</ion-label>
+  </div>
+  <br>
+  <div class="icon"><img src="../assets/img/gorra.png">
+       <ion-label>Utiliza tu sombrero favorito</ion-label>
+  </div>
+  <br>
+  <div class="icon"><img src="../assets/img/protector.png">
+      <ion-label>Recuerda utilizar protector solar</ion-label>
+  </div>
+</div>
+
+<div *ngIf="alto">
+  <ion-label floating> En este momento el índice UV indica un nivel alto</ion-label>
+  <br>
+  <div class="icon"><img src="../assets/img/gafas.png">
+      <ion-label>Recuerda llevar tus gafas de sol</ion-label>
+  </div>
+  <br>
+  <div class="icon"><img src="../assets/img/gorra.png">
+       <ion-label>Utiliza tu sombrero favorito</ion-label>
+  </div>
+  <br>
+  <div class="icon"><img src="../assets/img/camiseta.png">
+         <ion-label>Cubre tus manos y pies</ion-label>
+  </div>
+  <br>  
+  <div class="icon"><img src="../assets/img/protector.png">
+      <ion-label>Recuerda utilizar protector solar</ion-label>
+  </div>
+</div>
+
+<div *ngIf="muyAlto">
+  
+  <ion-label floating> En este momento el índice UV indica un nivel muy alto</ion-label>
+  <br>
+  <div class="icon"><img src="../assets/img/gafas.png">
+      <ion-label>Recuerda llevar tus gafas de sol</ion-label>
+  </div>
+  <br>
+  <div class="icon"><img src="../assets/img/gorra.png">
+       <ion-label>Utiliza tu sombrero favorito</ion-label>
+  </div>
+  <br>
+  <div class="icon"><img src="../assets/img/camiseta.png">
+         <ion-label>Cubre tus manos y pies</ion-label>
+  </div>
+  <br>
+  <div class="icon"><img src="../assets/img/sombrilla.png">
+      <ion-label>Procure no exponerse al sol </ion-label>
+      <ion-label>Evita el sol entre las 12:00 - 16:00 H </ion-label>
+  </div>
+  <br>  
+  <div class="icon"><img src="../assets/img/protector.png">
+      <ion-label>Recuerda utilizar protector solar</ion-label>
+  </div>
+</div>
+
+ <div *ngIf="extremo">
+  <ion-label floating> En este momento el índice UV indica un nivel extremo</ion-label>
+  <div class="icon"><img src="../assets/img/casa.png">
+    <ion-label> Quedate en casa, evita la exposición al sol</ion-label>
+  </div>
+</div> 
+  
+</ion-content>

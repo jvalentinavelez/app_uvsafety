@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recomendaciones</ion-title>
+    <ion-button slot="end" (click)="returnhome()" fill="white" color="white"> 
+      <ion-icon slot="icon-only" name="home-outline"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="full-width">
+    <ion-avatar slot="start">
+      <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+    </ion-avatar>
+    <ion-button expand="block" color="dark" (click)="openforme()">Para mí</ion-button>
+  </section>
+  <section class="full-width">
+    <ion-button expand="block" color="dark" (click)="opengeneral()"> Generales </ion-button>
+  </section>
+  <section class="full-width">
+    <ion-button expand="block" color="dark" (click)="openojos()"> Protege tus ojos </ion-button>
+  </section>
+  <section class="full-width">
+    <ion-button expand="block" color="dark" (click)="openropa()"> Ropa adecuada </ion-button>
+  </section>
+  <section class="full-width">
+    <ion-button expand="block" color="dark" (click)="openprotector()"> Protector solar </ion-button>
+  </section>
+  <section class="full-width">
+    <ion-button expand="block" color="dark" (click)="openaplicacion()"> Aplicación del protector solar </ion-button>
+  </section>
+</ion-content>

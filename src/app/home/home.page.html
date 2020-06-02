@@ -1,0 +1,62 @@
+<ion-content [fullscreen]="true">
+
+  <div class="container" *ngIf="weather">
+    <circle-progress
+      [percent]="percent"
+      [maxPercent]="100"
+      [radius]="radius"
+      [showTitle]="false"
+      [showSubtitle]="false"
+      [animation]="true"
+      [showUnits]="false"
+      [outerStrokeWidth]="16"
+      [outerStrokeColor]=[outerStrokeColor]
+      [backgroundStroke]="'#418aaf'"
+      [backgroundStrokeWidth]="10"
+      [outerStrokeGradient]="true"
+      [outerStrokeGradientStopColor]=[outerStrokeGradientStopColor]
+      [showInnerStroke]="false"
+  ></circle-progress>  
+  </div>
+
+  <ion-fab class="ginfo">
+    <ion-fab-button (click)="openginfo()" color="dark">
+      <ion-icon name="information-circle-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab class = "notif">
+    <ion-fab-button (click)="openreminders()" color="dark">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab class = "profile">
+    <ion-fab-button (click)="openprofile()" color="light">
+      <ion-icon name="person-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab class = "uvinfo">
+    <ion-fab-button (click)="openuvinfo()" color="dark" size="small">
+      <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div class ="container">
+    <ion-grid *ngIf="weather">
+      <ion-row>
+        <ion-col>
+          <div class="uv"> {{weather['uv'].toFixed(0)}}</div>
+          <br><br>
+          <div class="descriptionuv"> {{risk}}</div> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+    <ion-grid *ngIf="weather">
+      <ion-row>
+        <ion-col>
+          <div class="temp">{{weather['city_name']}}, {{weather['temp'].toFixed(0)}}&deg;</div>
+          <div class="icon"><img src="../assets/img/{{icon['icon']}}.png"></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>
