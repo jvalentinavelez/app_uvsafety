@@ -1,27 +1,29 @@
 ion-content{
     --ion-background-color:#AAD9FF; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 .title{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 15px 10px 15px 15px;
     text-align: left;
+    font-weight: 300;
 }
 .title1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    font-family: sans-serif;
+    font-weight: 550;
 }
+
 .icon{
     margin: 17px 15px 10px 15px;
     position: absolute;
 }
-
 .card1{
     width: 30%;
     background: #6AE240 ;
     border-radius: 10px;
     margin: 8px 5px 8px 10px;
 }
-
 .card2{
     width: 40%;
     background: #FBFF00 ;
@@ -35,7 +37,6 @@ ion-content{
     border-radius: 10px;
     margin: 8px 5px 8px 10px;
 }
-
 .card4{
     width: 80%;
     background: #FF2F16 ;
@@ -44,7 +45,7 @@ ion-content{
 }
 
 .card5{
-    width: 98%;
+    width: 95%;
     background: #AA55F8  ;
     border-radius: 10px;
     margin: 8px 5px 8px 10px;
