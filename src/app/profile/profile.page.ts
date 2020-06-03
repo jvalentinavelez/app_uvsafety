@@ -5,6 +5,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
 import * as firebase from 'firebase/app';
 import { UserinfoService } from '../services/userinfo.service';
+import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class ProfilePage implements OnInit {
   gender:string
   email:string
   birthdate:string
+  spf:number
 
   constructor(
     private afAuth : AngularFireAuth, 
@@ -35,6 +37,7 @@ export class ProfilePage implements OnInit {
         this.skin = event.skin
         this.gender = event.gender
         this.birthdate = event.birthdate
+        this.spf = event.spf
       })
     }
   returnhome(){

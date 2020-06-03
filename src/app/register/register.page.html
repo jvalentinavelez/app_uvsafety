@@ -36,6 +36,23 @@
 </ion-item>
 <br><br>
 <ion-item color="light">
+  <ion-label position="floating" class="ion-text-wrap"> SPF </ion-label>
+  <ion-select placeholder="Selecciona tu SPF" color="dark" [(ngModel)]="spf">
+    <ion-select-option value=0> 0</ion-select-option>
+    <ion-select-option value=10 >10</ion-select-option>
+    <ion-select-option value=20 >20</ion-select-option>
+    <ion-select-option value=30 >30</ion-select-option>
+    <ion-select-option value=40 >40</ion-select-option>
+    <ion-select-option value=50 >50</ion-select-option>
+    <ion-select-option value=60 >60</ion-select-option>
+    <ion-select-option value=70 >70</ion-select-option>
+    <ion-select-option value=80 >80</ion-select-option>
+    <ion-select-option value=90 >90</ion-select-option>
+    <ion-select-option value=100 >100</ion-select-option>
+  </ion-select>
+</ion-item>
+<br><br>
+<ion-item color="light">
   <ion-label position="floating" > Correo electrónico</ion-label>
   <ion-input type="text" [(ngModel)]="email" name="email" placeholder="Correo electrónico"></ion-input>
 </ion-item>

@@ -22,6 +22,7 @@ export class RegisterPage implements OnInit {
   skin:string= "";
   gender:string="";
   birthdate:string="";
+  spf:number=null;
 
   disabledButton;
 
@@ -55,10 +56,13 @@ export class RegisterPage implements OnInit {
       this.presentToast("Su tipo de piel es requerido");
     }else if(this.gender==""){
       this.presentToast("Su sexo es requerido");
-    }else{
+    } else if(this.spf==null){
+      this.presentToast("Debe ingresar un SPF");
+    }
+    else{
       this.disabledButton=true;
     
-      const { email, password, name, skin, gender, birthdate} = this
+      const { email, password, name, skin, gender, birthdate, spf} = this
       try{
         const res = await this.afAuth.auth.createUserWithEmailAndPassword(email,password)
         this.afstore.doc(`users/${res.user.uid}`).set({
@@ -66,7 +70,8 @@ export class RegisterPage implements OnInit {
           name,
           skin, 
           gender,
-          birthdate
+          birthdate,
+          spf
         })
         this.user.setUser({
           email,
