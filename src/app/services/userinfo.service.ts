@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import { Router } from "@angular/router";
+import { auth } from 'firebase/app'
+
 
 interface user{
   email: string,
@@ -33,6 +35,19 @@ export class UserinfoService {
       return this.user.uid
     }
   }
+  getEmail(): string {
+		return this.user.email
+	}
+
+	reAuth(email: string, password: string) {
+		return this.afAuth.auth.currentUser.reauthenticateWithCredential(auth.EmailAuthProvider.credential(email, password))
+	}
+	updatePassword(newpassword: string) {
+		return this.afAuth.auth.currentUser.updatePassword(newpassword)
+  }
+  updateEmail(newemail: string) {
+		return this.afAuth.auth.currentUser.updateEmail(newemail)
+	}
   logout(){
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['/login']);

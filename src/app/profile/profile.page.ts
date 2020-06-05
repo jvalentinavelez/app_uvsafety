@@ -43,6 +43,9 @@ export class ProfilePage implements OnInit {
   returnhome(){
     this.router.navigate(['home']);
   }
+  openEditProfile(){
+    this.router.navigate(['edit-profile']);
+  }
   Onlogout(){
     this.user.logout();
   }
