@@ -71,78 +71,78 @@ export class HomePage {
           if (weather['data']['0']['uv'].toFixed(0) =='0'){
           //if(this.uv=='0'){
             this.percent=100;
-            this.risk='No hay riesgo';
+            this.risk='Sin riesgo';
             this.riskicon='happy-outline';
-            this.outerStrokeColor='#75f60e';
-            this.outerStrokeGradientStopColor='#c9f69e';
+            this.outerStrokeColor='#6AE240';
+            this.outerStrokeGradientStopColor='#84fa88';
           }
           else if(weather['data']['0']['uv'].toFixed(0) =='1'){
           //else if(this.uv=='1'){
             this.percent=9.09;
             this.risk='Bajo';
-            this.outerStrokeColor='#75f60e';
-            this.outerStrokeGradientStopColor='#c9f69e';
+            this.outerStrokeColor='#B4FF29';
+            this.outerStrokeGradientStopColor='#FBFF00';
           }
           else if (weather['data']['0']['uv'].toFixed(0) =='2'){
           //else if(this.uv=='2'){
             this.percent=18.18;
             this.risk='Bajo';
-            this.outerStrokeColor='#75f60e';
-            this.outerStrokeGradientStopColor='#c9f69e';
+            this.outerStrokeColor='#B4FF29';
+            this.outerStrokeGradientStopColor='#FBFF00';
           }
           else if (weather['data']['0']['uv'].toFixed(0) =='3'){
           //else if(this.uv=='3'){
             this.percent=27.27;
             this.risk='Moderado';
-            this.outerStrokeColor='#fff400';
-            this.outerStrokeGradientStopColor='#ffd85d';
+            this.outerStrokeColor='#fffd59';
+            this.outerStrokeGradientStopColor='#FBFF00';
           }
           else if (weather['data']['0']['uv'].toFixed(0) =='4'){
           //else if(this.uv=='4'){
             this.percent=36.36;
             this.risk='Moderado';
-            this.outerStrokeColor='#fff400';
-            this.outerStrokeGradientStopColor='#ffd85d';
+            this.outerStrokeColor='#fffd59';
+            this.outerStrokeGradientStopColor='#FBFF00';
           }
           else if (weather['data']['0']['uv'].toFixed(0) =='5'){
           //else if(this.uv=='5'){
             this.percent=45.45;
             this.risk='Moderado';
-            this.outerStrokeColor='#fff400';
-            this.outerStrokeGradientStopColor='#ffc361';
+            this.outerStrokeColor='#fffd59';
+            this.outerStrokeGradientStopColor='#FBFF00';
           }
           else if (weather['data']['0']['uv'].toFixed(0) =='6'){
           //else if(this.uv=='6'){
             this.percent=54.54;
             this.risk='Alto';
-            this.outerStrokeColor='#ffb418';
+            this.outerStrokeColor='#FFA529';
             this.outerStrokeGradientStopColor='#ff6d38';
           }
           else if (weather['data']['0']['uv'].toFixed(0) =='7'){
           //else if(this.uv=='7'){
             this.percent=63.63;
             this.risk='Alto';
-            this.outerStrokeColor='#ffb418';
-            this.outerStrokeGradientStopColor='#ff6d38';
+            this.outerStrokeColor='#FFA529';
+            this.outerStrokeGradientStopColor='#FF2F16';
           }
           else if (weather['data']['0']['uv'].toFixed(0) =='8'){
           //else if(this.uv=='8'){
             this.percent=72.72;
-            this.risk='Muy alto';
+            this.risk='Muy Alto';
             this.outerStrokeColor='#ff6b55';
             this.outerStrokeGradientStopColor='#ff3e3b';
           }
           else if (weather['data']['0']['uv'].toFixed(0) =='9'){
           //else if(this.uv=='9'){
             this.percent=81.81;
-            this.risk='Muy alto';
+            this.risk='Muy Alto';
             this.outerStrokeColor='#ff6b55';
             this.outerStrokeGradientStopColor='#ff3e3b';
           }
           else if (weather['data']['0']['uv'].toFixed(0) =='10'){
           //else if(this.uv=='10'){
             this.percent=90.9;
-            this.risk='Muy alto';
+            this.risk='Muy Alto';
             this.outerStrokeColor='#ff6b55';
             this.outerStrokeGradientStopColor='#ff3e3b';
           }
@@ -150,14 +150,14 @@ export class HomePage {
           //else if(this.uv=='11'){
             this.percent=100;
             this.risk='Extremo';
-            this.outerStrokeColor='#ff9aeb';
-            this.outerStrokeGradientStopColor='#a56aff';
+            this.outerStrokeColor='#AA55F8';
+            this.outerStrokeGradientStopColor='#FA3E54';
           }
           else {
             this.percent=100;
             this.risk='Extremo';
-            this.outerStrokeColor='#ff9aeb';
-            this.outerStrokeGradientStopColor='#a56aff';
+            this.outerStrokeColor='#AA55F8';
+            this.outerStrokeGradientStopColor='#FA3E54';
           }
         this.userServ.changeData(this.risk);
         });
