@@ -36,7 +36,7 @@ export class ProfilePage implements OnInit {
         this.email = event.email
         this.skin = event.skin
         this.gender = event.gender
-        this.birthdate = event.birthdate
+        this.birthdate = event.birthdate.split("T")[0]
         this.spf = event.spf
       })
     }

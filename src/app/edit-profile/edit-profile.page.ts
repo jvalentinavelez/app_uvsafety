@@ -57,14 +57,14 @@ export class EditProfilePage implements OnInit {
 
 		if(!this.password) {
 			this.busy = false
-			return this.presentAlert('Error!', 'You have to enter a password')
+			return this.presentAlert('¡Error!', '¡Debes ingresar tu contraseña')
 		}
 
 		try {
 			await this.user.reAuth(this.user.getEmail(), this.password)
 		} catch(error) {
 			this.busy = false
-			return this.presentAlert('Error!', 'Wrong password!')
+			return this.presentAlert('¡Error!', '¡Contraseña equivocada!')
 		}
 
 		if(this.newpassword) {
