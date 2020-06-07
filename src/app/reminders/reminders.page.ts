@@ -3,6 +3,8 @@ import { Router} from '@angular/router';
 import {Platform, AlertController} from '@ionic/angular';
 import { LocalNotifications, ELocalNotificationTriggerUnit } from '@ionic-native/local-notifications/ngx';
 import { ServicioService } from "./../servicio.service";
+import { UserinfoService } from '../services/userinfo.service';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-reminders',
@@ -11,13 +13,18 @@ import { ServicioService } from "./../servicio.service";
 })
 export class RemindersPage implements OnInit {
   risk: any;
+  spf:string;
   protection = false;
+  mainuser: AngularFirestoreDocument
+	sub
 
   constructor(private router: Router,
     private plt: Platform,
     private localNotifications: LocalNotifications,
     private alertCtrl: AlertController,
-    private userServ: ServicioService) {
+    private userServ: ServicioService,
+    private user: UserinfoService,
+    private afs: AngularFirestore,) {
       this.plt.ready().then(()=> {
         this.localNotifications.on('click').subscribe(res => {
           console.log('click: ',res);
@@ -31,12 +38,17 @@ export class RemindersPage implements OnInit {
           this.showAlert(res.title,res.text,msg);
         })
       })
+      this.mainuser = afs.doc(`users/${user.getUID()}`)
+      this.sub = this.mainuser.valueChanges().subscribe(event => {
+        this.spf = event.spf
+      })
     }
   returnhome(){
     this.router.navigate(['home']);
   }
   SolarProtNotifications(){
     this.userServ.serviceData.subscribe(data => (this.risk = data));
+    console.log(this.spf);
     this.protection = !this.protection;
     console.log("True");
     this.localNotifications.schedule({

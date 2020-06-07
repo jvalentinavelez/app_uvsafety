@@ -6,6 +6,8 @@ import { AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firesto
 import * as firebase from 'firebase/app';
 import { UserinfoService } from '../services/userinfo.service';
 import { ThrowStmt } from '@angular/compiler';
+import { ServicioService } from "./../servicio.service";
+
 
 
 @Component({
@@ -29,6 +31,7 @@ export class ProfilePage implements OnInit {
     private router: Router,  
     public user: UserinfoService,
     public afs: AngularFirestore,
+    private userServ: ServicioService
     ) {
       this.mainuser = afs.doc(`users/${user.getUID()}`)
       this.sub = this.mainuser.valueChanges().subscribe(event => {
@@ -38,6 +41,7 @@ export class ProfilePage implements OnInit {
         this.gender = event.gender
         this.birthdate = event.birthdate.split("T")[0]
         this.spf = event.spf
+        this.userServ.getSPF(this.spf);
       })
     }
   returnhome(){
