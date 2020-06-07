@@ -14,7 +14,8 @@ export class EditProfilePage implements OnInit {
   mainuser: AngularFirestoreDocument
 	sub
 	email: string
-	name: string
+  name: string
+  spf: number
 
 	password: string
 	newpassword: string
@@ -22,14 +23,15 @@ export class EditProfilePage implements OnInit {
 	busy: boolean = false
 
   constructor(
-		private afs: AngularFirestore,
+    private afs: AngularFirestore,
 		private router: Router,
 		private alertController: AlertController,
 		private user: UserinfoService) {
 		this.mainuser = afs.doc(`users/${user.getUID()}`)
 		this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.email = event.email
-			this.name = event.name
+      this.name = event.name
+      this.spf = event.spf
 		})
   }
 
@@ -49,9 +51,6 @@ export class EditProfilePage implements OnInit {
 
 		await alert.present()
   }
-  //uploadName(){
-    //this.mainuser.update({name})
-  //}
 
   async updateDetails() {
 		this.busy = true
@@ -76,7 +75,10 @@ export class EditProfilePage implements OnInit {
 			this.mainuser.update({
 				email: this.email
 			})
-		}
+    }
+    
+    this.mainuser.update({name: this.name})
+    this.mainuser.update({spf: this.spf})
 
 		this.password = ""
 		this.newpassword = ""
@@ -88,6 +90,9 @@ export class EditProfilePage implements OnInit {
   }
   returnhome(){
     this.router.navigate(['home']);
+  }
+  returnprofile(){
+    this.router.navigate(['profile']);
   }
 
 }
