@@ -54,7 +54,7 @@ export class FormeModalComponent implements OnInit {
   Protection() {
     this.userServ.serviceData.subscribe(data => (this.risk = data));
     if (this.skin == 'uno'){
-      if(this.risk == 'No hay riesgo'){
+      if(this.risk == 'Sin riesgo'){
         this.noRiesgo = true;
         this.DEM = (40*Number(this.spf)/15)
       }else if(this.risk == 'Bajo'){
@@ -96,7 +96,7 @@ export class FormeModalComponent implements OnInit {
       }
     }
     else if (this.skin == 'tres'){
-      if(this.risk == 'No hay riesgo'){
+      if(this.risk == 'Sin riesgo'){
         this.noRiesgo = true;
         this.DEM = (80*Number(this.spf)/9)
       }else if(this.risk == 'Bajo'){
@@ -117,7 +117,7 @@ export class FormeModalComponent implements OnInit {
       }
     }
     else if (this.skin == 'cuatro', this.skin == 'cinco',this.skin == 'seis'){
-      if(this.risk == 'No hay riesgo'){
+      if(this.risk == 'Sin riesgo'){
         this.noRiesgo = true;
         this.DEM = (100*Number(this.spf)/6)
       }else if(this.risk == 'Bajo'){
