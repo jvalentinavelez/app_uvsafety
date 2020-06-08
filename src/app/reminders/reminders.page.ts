@@ -14,6 +14,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 export class RemindersPage implements OnInit {
   risk: any;
   spf:string;
+  skin:string;
   protection = false;
   mainuser: AngularFirestoreDocument
 	sub
@@ -24,7 +25,7 @@ export class RemindersPage implements OnInit {
     private alertCtrl: AlertController,
     private userServ: ServicioService,
     private user: UserinfoService,
-    private afs: AngularFirestore,) {
+    private afs: AngularFirestore) {
       this.plt.ready().then(()=> {
         this.localNotifications.on('click').subscribe(res => {
           console.log('click: ',res);
@@ -41,6 +42,7 @@ export class RemindersPage implements OnInit {
       this.mainuser = afs.doc(`users/${user.getUID()}`)
       this.sub = this.mainuser.valueChanges().subscribe(event => {
         this.spf = event.spf
+        this.skin = event.skin
       })
     }
   returnhome(){

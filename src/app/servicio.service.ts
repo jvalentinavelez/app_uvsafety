@@ -14,7 +14,4 @@ export class ServicioService {
 	changeData(data: any){
 		this.dataSource.next(data);
 	}
-	getSPF(data2:any){
-		this.dataSource.next(data2)
-	}
 }

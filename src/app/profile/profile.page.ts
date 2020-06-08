@@ -41,7 +41,6 @@ export class ProfilePage implements OnInit {
         this.gender = event.gender
         this.birthdate = event.birthdate.split("T")[0]
         this.spf = event.spf
-        this.userServ.getSPF(this.spf);
       })
     }
   returnhome(){

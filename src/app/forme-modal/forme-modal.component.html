@@ -2,18 +2,24 @@
   <ion-button (click)="dismissModal()"> Cerrar
   </ion-button>
 </ion-header>
-<ion-content>
-
-<ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
-<br><br>
+<ion-content [ngClass]="{check:Protection(dataPass)}">
 
 <div *ngIf="noRiesgo">
   <ion-label floating> En este momento no hay riesgo </ion-label>
+  <br><br>
+  <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
+    <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+  </div>
 </div>
 
 <div *ngIf="bajo">
+  <ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
+  <br><br>
   <ion-label floating> En este momento el índice UV indica un nivel bajo</ion-label>
   <br>
+  <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
+    <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+  </div>
   <div class="icon"><img src="../assets/img/gafas.png">
      <ion-label>Recuerda llevar tus gafas de sol</ion-label>
   </div>
@@ -24,8 +30,13 @@
 </div>
 
 <div *ngIf="moderado">
+  <ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
+  <br><br>
   <ion-label floating> En este momento el índice UV indica un nivel moderado</ion-label>
   <br>
+  <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
+    <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+  </div>
   <div class="icon"><img src="../assets/img/gafas.png">
       <ion-label>Recuerda llevar tus gafas de sol</ion-label>
   </div>
@@ -37,11 +48,19 @@
   <div class="icon"><img src="../assets/img/protector.png">
       <ion-label>Recuerda utilizar protector solar</ion-label>
   </div>
+  <div>
+    <ion-label>Tu piel estará protegida por {{DEM}} minutos</ion-label>
+</div>
 </div>
 
 <div *ngIf="alto">
+  <ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
+  <br><br>
   <ion-label floating> En este momento el índice UV indica un nivel alto</ion-label>
   <br>
+  <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
+    <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+  </div>
   <div class="icon"><img src="../assets/img/gafas.png">
       <ion-label>Recuerda llevar tus gafas de sol</ion-label>
   </div>
@@ -60,9 +79,13 @@
 </div>
 
 <div *ngIf="muyAlto">
-  
+  <ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
+  <br><br>
   <ion-label floating> En este momento el índice UV indica un nivel muy alto</ion-label>
   <br>
+  <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
+    <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+  </div>
   <div class="icon"><img src="../assets/img/gafas.png">
       <ion-label>Recuerda llevar tus gafas de sol</ion-label>
   </div>
@@ -86,9 +109,15 @@
 </div>
 
  <div *ngIf="extremo">
+  <ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
+  <br><br>
   <ion-label floating> En este momento el índice UV indica un nivel extremo</ion-label>
+  <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
+    <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+  </div>
+  <br>
   <div class="icon"><img src="../assets/img/casa.png">
-    <ion-label> Quedate en casa, evita la exposición al sol</ion-label>
+    <ion-label> Quédate en casa, evita la exposición al sol</ion-label>
   </div>
 </div> 
   
