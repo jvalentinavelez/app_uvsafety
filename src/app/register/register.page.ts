@@ -89,6 +89,7 @@ export class RegisterPage implements OnInit {
           this.presentToast("La contraseña debe ser de mínimo 6 caracteres")
   				alert('La contraseña debe ser de mínimo 6 caracteres')
         }
+        this.disabledButton=false;
 		  }
   }
 }
