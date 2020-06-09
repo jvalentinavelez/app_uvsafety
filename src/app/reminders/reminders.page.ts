@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
-import {Platform, AlertController} from '@ionic/angular';
-import { LocalNotifications, ELocalNotificationTriggerUnit } from '@ionic-native/local-notifications/ngx';
+import { GetDEMService } from './../get-dem.service';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { ModalController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 import { ServicioService } from "./../servicio.service";
 import { UserinfoService } from '../services/userinfo.service';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-reminders',
@@ -12,127 +13,140 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
   styleUrls: ['./reminders.page.scss'],
 })
 export class RemindersPage implements OnInit {
+  noRiesgo: any;
+  bajo:any;
+  moderado: any;
+  alto: any;
+  muyAlto:any;
+  extremo:any;
   risk: any;
-  spf:string;
+  n: number;
+  DEM: number;
+  spf: string;
   skin:string;
-  protection = false;
   mainuser: AngularFirestoreDocument
 	sub
 
-  constructor(private router: Router,
-    private plt: Platform,
-    private localNotifications: LocalNotifications,
-    private alertCtrl: AlertController,
+  constructor(
+    public router: Router,
+    private ModalController: ModalController,
+    private activeRoute: ActivatedRoute,
     private userServ: ServicioService,
-    private user: UserinfoService,
-    private afs: AngularFirestore) {
-      this.plt.ready().then(()=> {
-        this.localNotifications.on('click').subscribe(res => {
-          console.log('click: ',res);
-          let msg = res.data ? res.data.mydata : '';
-          this.showAlert(res.title,res.text,msg);
-        })
-      });
-      this.plt.ready().then(()=> {
-        this.localNotifications.on('trigger').subscribe(res => {
-          let msg = res.data ? res.data.mydata : '';
-          this.showAlert(res.title,res.text,msg);
-        })
-      })
+    private getDEM: GetDEMService,
+    private user: UserinfoService, 
+    private afs: AngularFirestore ) {
       this.mainuser = afs.doc(`users/${user.getUID()}`)
       this.sub = this.mainuser.valueChanges().subscribe(event => {
         this.spf = event.spf
         this.skin = event.skin
-      })
+     })
     }
   returnhome(){
     this.router.navigate(['home']);
   }
-  SolarProtNotifications(){
-    this.userServ.serviceData.subscribe(data => (this.risk = data));
-    console.log(this.spf);
-    this.protection = !this.protection;
-    console.log("True");
-    this.localNotifications.schedule({
-      id: 1,
-      title: 'UV SAFETY',
-      text: 'This works',
-      icon:'https://pngimg.com/download/54451',
-      trigger: {every: ELocalNotificationTriggerUnit.MINUTE}
-    });
+  dismissModal(){
+    this.ModalController.dismiss();
   }
-  CuidadosPersonalesNotifications(){
-    this.userServ.serviceData.subscribe(data => (this.risk = data));
-    if(this.risk == 'No hay riesgo'){
-      this.protection = !this.protection;
-      this.localNotifications.schedule({
-        id: 2,
-        title: 'UV SAFETY',
-        text: 'Necesitas protección mínima',
-        data: {mydata: this.risk},
-        trigger: {in: 3, unit: ELocalNotificationTriggerUnit.SECOND}
-      });
-    }else if(this.risk == 'Bajo'){
-      this.protection = !this.protection;
-      this.localNotifications.schedule({
-        id: 3,
-        title: 'UV SAFETY',
-        text: 'Necesitas usar un sombrero ',
-        icon:'../assets/img/gafas.png',
-        data: {mydata: this.risk},
-        trigger: {in: 3, unit: ELocalNotificationTriggerUnit.SECOND}
-      });
-    }else if(this.risk == 'Moderado'){
-      this.protection = !this.protection;
-      this.localNotifications.schedule({
-        id: 3,
-        title: 'UV SAFETY',
-        text: 'Necesitas usar:',
-        icon:'../assets/img/gafas.png',
-        data: {mydata: this.risk},
-        trigger: {in: 3, unit: ELocalNotificationTriggerUnit.SECOND}
-      });
-    }else if(this.risk == 'Alto'){
-      this.protection = !this.protection;
-      this.localNotifications.schedule({
-        id: 3,
-        title: 'UV SAFETY',
-        text: 'Necesitas usar:',
-        icon:'../assets/img/gafas.png',
-        data: {mydata: this.risk},
-        trigger: {in: 3, unit: ELocalNotificationTriggerUnit.SECOND}
-      });
-    }else if(this.risk == 'Muy Alto'){
-      this.protection = !this.protection;
-      this.localNotifications.schedule({
-        id: 3,
-        title: 'UV SAFETY',
-        text: 'Necesitas usar:',
-        icon:'../assets/img/protector.png',
-        data: {mydata: this.risk},
-        trigger: {in: 3, unit: ELocalNotificationTriggerUnit.SECOND}
-      });
-    }else if(this.risk == 'Extremo'){
-      this.protection = !this.protection;
-      this.localNotifications.schedule({
-        id: 3,
-        title: 'UV SAFETY',
-        text: 'Necesitas usar:',
-        icon:'../assets/img/gorra.png',
-        data: {mydata: this.risk},
-        trigger: {in: 3, unit: ELocalNotificationTriggerUnit.SECOND}
-      });
-  }}
-  async showAlert(header, sub, msg) {
-    this.alertCtrl.create({
-      header: header,
-      subHeader: sub,
-      message: msg,
-      buttons: ['Ok']
-    }).then(alert => alert.present());
+
+  timeConvert(n){
+    var num = n;
+    var hours = (num/60);
+    var rhours = Math.floor(hours);
+    var minutes = (hours - rhours)*60;
+    var rminutes = Math.round(minutes);
+    return rhours + " hora(s) y " + rminutes + " minutos"
   }
- 
-  ngOnInit() {
+
+  Protection() {
+    this.userServ.serviceData.subscribe(data => (this.risk = data));
+    if (this.skin == 'uno'){
+      if(this.risk == 'Sin riesgo'){
+        this.noRiesgo = true;
+        this.DEM = (40*Number(this.spf)/15)
+      }else if(this.risk == 'Bajo'){
+        this.bajo = true;
+        this.DEM = (40*Number(this.spf)/15)
+      }else if(this.risk == 'Moderado'){
+        this.moderado = true;
+        this.DEM = (20*Number(this.spf)/30)
+      }else if(this.risk == 'Alto'){
+        this.alto = true;
+        this.DEM = (15*Number(this.spf)/50)
+      }else if(this.risk == 'Muy Alto'){
+        this.muyAlto = true;
+        this.DEM = (15*Number(this.spf)/50)
+      }else if(this.risk == 'Extremo'){
+        this.extremo = true;
+        this.DEM = (10*Number(this.spf)/60)
+      }
+    }
+    else if (this.skin == 'dos'){
+      if(this.risk == 'Sin riesgo'){
+        this.noRiesgo = true;
+        this.DEM = (50*Number(this.spf)/12)
+      }else if(this.risk == 'Bajo'){
+        this.bajo = true;
+        this.DEM = (50*Number(this.spf)/12)
+      }else if(this.risk == 'Moderado'){
+        this.moderado = true;
+        this.DEM = (30*Number(this.spf)/25)
+      }else if(this.risk == 'Alto'){
+        this.alto = true;
+        this.DEM = (20*Number(this.spf)/40)
+      }else if(this.risk == 'Muy Alto'){
+        this.muyAlto = true;
+        this.DEM = (20*Number(this.spf)/40)
+      }else if(this.risk == 'Extremo'){
+        this.extremo = true;
+        this.DEM = (15*Number(this.spf)/50)
+      }
+    }
+    else if (this.skin == 'tres'){
+      if(this.risk == 'Sin riesgo'){
+        this.noRiesgo = true;
+        this.DEM = (80*Number(this.spf)/9)
+      }else if(this.risk == 'Bajo'){
+        this.bajo = true;
+        this.DEM = (80*Number(this.spf)/9)
+      }else if(this.risk == 'Moderado'){
+        this.moderado = true;
+        this.DEM = (40*Number(this.spf)/15)
+      }else if(this.risk == 'Alto'){
+        this.alto = true;
+        this.DEM = (25*Number(this.spf)/30)
+      }else if(this.risk == 'Muy Alto'){
+        this.muyAlto = true;
+        this.DEM = (25*Number(this.spf)/30)
+      }else if(this.risk == 'Extremo'){
+        this.extremo = true;
+        this.DEM = (20*Number(this.spf)/40)
+      }
+    }
+    else if (this.skin == 'cuatro', this.skin == 'cinco',this.skin == 'seis'){
+      if(this.risk == 'Sin riesgo'){
+        this.noRiesgo = true;
+        this.DEM = (100*Number(this.spf)/6)
+      }else if(this.risk == 'Bajo'){
+        this.bajo = true;
+        this.DEM = (100*Number(this.spf)/6)
+      }else if(this.risk == 'Moderado'){
+        this.moderado = true;
+        this.DEM = (50*Number(this.spf)/12)
+      }else if(this.risk == 'Alto'){
+        this.alto = true;
+        this.DEM = (35*Number(this.spf)/20)
+      }else if(this.risk == 'Muy Alto'){
+        this.muyAlto = true;
+        this.DEM = (25*Number(this.spf)/20)
+      }else if(this.risk == 'Extremo'){
+        this.extremo = true;
+        this.DEM = (25*Number(this.spf)/30)
+      }
+    }
+    this.getDEM.changeDataDEM(this.DEM);
+  }
+  ngOnInit(){
   }
 
 }
+

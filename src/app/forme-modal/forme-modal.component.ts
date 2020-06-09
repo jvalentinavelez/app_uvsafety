@@ -3,6 +3,8 @@ import { ModalController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { ServicioService } from "./../servicio.service";
 import { UserinfoService } from '../services/userinfo.service';
+import { GetDEMService } from './../get-dem.service';
+
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Component({
@@ -29,6 +31,7 @@ export class FormeModalComponent implements OnInit {
     private ModalController: ModalController,
     private activeRoute: ActivatedRoute,
     private userServ: ServicioService,
+    private getDEM: GetDEMService,
     private user: UserinfoService, 
     private afs: AngularFirestore ) {
       this.mainuser = afs.doc(`users/${user.getUID()}`)
@@ -66,7 +69,7 @@ export class FormeModalComponent implements OnInit {
       }else if(this.risk == 'Alto'){
         this.alto = true;
         this.DEM = (15*Number(this.spf)/50)
-      }else if(this.risk == 'Muy alto'){
+      }else if(this.risk == 'Muy Alto'){
         this.muyAlto = true;
         this.DEM = (15*Number(this.spf)/50)
       }else if(this.risk == 'Extremo'){
@@ -87,7 +90,7 @@ export class FormeModalComponent implements OnInit {
       }else if(this.risk == 'Alto'){
         this.alto = true;
         this.DEM = (20*Number(this.spf)/40)
-      }else if(this.risk == 'Muy alto'){
+      }else if(this.risk == 'Muy Alto'){
         this.muyAlto = true;
         this.DEM = (20*Number(this.spf)/40)
       }else if(this.risk == 'Extremo'){
@@ -108,7 +111,7 @@ export class FormeModalComponent implements OnInit {
       }else if(this.risk == 'Alto'){
         this.alto = true;
         this.DEM = (25*Number(this.spf)/30)
-      }else if(this.risk == 'Muy alto'){
+      }else if(this.risk == 'Muy Alto'){
         this.muyAlto = true;
         this.DEM = (25*Number(this.spf)/30)
       }else if(this.risk == 'Extremo'){
@@ -129,7 +132,7 @@ export class FormeModalComponent implements OnInit {
       }else if(this.risk == 'Alto'){
         this.alto = true;
         this.DEM = (35*Number(this.spf)/20)
-      }else if(this.risk == 'Muy alto'){
+      }else if(this.risk == 'Muy Alto'){
         this.muyAlto = true;
         this.DEM = (25*Number(this.spf)/20)
       }else if(this.risk == 'Extremo'){
@@ -137,6 +140,7 @@ export class FormeModalComponent implements OnInit {
         this.DEM = (25*Number(this.spf)/30)
       }
     }
+    this.getDEM.changeDataDEM(this.DEM);
   }
   ngOnInit(){
   }

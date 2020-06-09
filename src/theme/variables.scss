@@ -278,5 +278,15 @@
         color: #ddd;
     }
 }
+$alert-md-background-color:rgb(26, 24, 24);
+.md,.ios,.wp {
+  page-landing {
+    .custom-alertDanger {
+      background-color: rgb(24, 16, 16) !important;
+      background: rgb(22, 13, 13)  !important;
+      color: black !important;
+      $alert-md-background-color: rgb(26, 20, 20);
+      $alert-ios-background: rgb(22, 20, 20);
+    }}}
 
 }
