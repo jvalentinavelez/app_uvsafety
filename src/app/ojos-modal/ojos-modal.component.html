@@ -1,18 +1,29 @@
 <ion-header>
-  <ion-button (click)="dismissModal()"> Cerrar
-  </ion-button>
+  <ion-toolbar>
+    <ion-title>Para tus ojos</ion-title>
+    <ion-button slot="end" (click)="dismissModal()" fill="white" color="white"> Cerrar</ion-button>
+    </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-card class="card" color="light">
     <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
     <ion-card-content>
-      Pasar largas horas en el sol sin proteger sus ojos aumenta tus probabilidades de desarrollar ciertas enfermedades de los ojos!.    </ion-card-content>
+      Pasar largas horas en el sol sin proteger sus ojos aumenta tus probabilidades de desarrollar ciertas enfermedades de los ojos!.  
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <ion-card-subtitle> Sin lentes de protección.</ion-card-subtitle>
+    <img class = "img" src = '../assets/img/sin_lente.PNG'> 
   </ion-card>
   <ion-card class="card" color="light">
     <ion-card-subtitle>¡Atención!</ion-card-subtitle>
     <ion-card-content>
       Para saber que lentes debes comprar: ¡revisa la etiqueta! Recuerda: los lentes deben bloquear entre el 99 y 100% de los rayos UVA y UBV.
     </ion-card-content>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <ion-card-subtitle> Con lentes de protección.</ion-card-subtitle>
+    <img class = "img" src = '../assets/img/proteccion.PNG'> 
   </ion-card>
   <ion-card class="card" color="light">
     <ion-card-subtitle>¡Atención!</ion-card-subtitle>
@@ -25,6 +36,10 @@
     <ion-card-content>
       Aquellos cuya etiqueta indica que son de uso “cosmético” bloquean alrededor del 70% de los rayos UV. 
     </ion-card-content>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <ion-card-subtitle> Con lentes cosméticos.</ion-card-subtitle>
+    <img class = "img" src = '../assets/img/cosmetico.PNG'> 
   </ion-card>
   <ion-card class="card" color="light">
     <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>

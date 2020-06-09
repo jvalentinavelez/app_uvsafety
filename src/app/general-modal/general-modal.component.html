@@ -1,20 +1,44 @@
 <ion-header>
-  <ion-button (click)="dismissModal()"> Cerrar
-  </ion-button>
+  <ion-toolbar>
+    <ion-title>Generales</ion-title>
+    <ion-button slot="end" (click)="dismissModal()" fill="white" color="white"> Cerrar</ion-button>
+    </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-card class="card" color="light">
-    <!-- <img src = './am_at.jpg'/> No carga la imagen, xq?-->
     <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
     <ion-card-content>
-      Entre las 10:00 a.m. y las 4:00 p.m., los rayos UV son más intensos.
-      <img src = './camiseta.png' alt = " ">
+      Solo el 5% de la radiación solar que llega a la tierra es radiación UV, pero ¡es muy potente.! Hay diferentes tipos: UVA, UVB y UVC. Mientras la radiación UVC es bloqueada por la capa de ozono, la radiación UVA y UVB llega a la tierra y afecta tu piel.
     </ion-card-content>
   </ion-card>
   <ion-card class="card" color="light">
     <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
     <ion-card-content>
-      Aún en días nublados los rayos UV pueden llegar al suelo.
+      Los rayos UVB son sólo el 5% de los rayos UV restantes, pero son los causantes de los bronceados y, por ende: de las quemaduras solares, también son los más relacionados al ¡cáncer de piel! Estos puedes sentirlos fácilmente: molestan o duelen.
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <img class = "img" src = '../assets/img/UVA-UVB.PNG'>
+
+  </ion-card>
+  <ion-card class="card" color="light">
+    <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
+    <ion-card-content>
+      Los rayos UVA son ese otro 95% de rayos UV que llegan a la tierra, estos NO duelen y por eso pasan desapercibidos, pero sus efectos son importantes: envejecimiento de la piel, formación de arrugas, enfermedades de pigmentación, y en menor medida, cáncer de piel. 
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <!-- <img src = './am_at.jpg'/> No carga la imagen, xq?-->
+    <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
+    <ion-card-content>
+      <img class = "img" src = '../assets/img/amat.PNG'> <br>
+      Entre las 10:00 a.m. y las 4:00 p.m., los rayos UV suelen ser más intensos.      
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
+    <ion-card-content>
+      Aún en días nublados los rayos UV pueden llegar al suelo. También pueden cruzar vidrios y ropa. 
     </ion-card-content>
   </ion-card>
   <ion-card class="card" color="light">
@@ -24,27 +48,23 @@
     </ion-card-content>
   </ion-card>
   <ion-card class="card" color="light">
-    <ion-card-subtitle>Tú seguridad Primero!</ion-card-subtitle>
+    <ion-card-subtitle>¡Tú seguridad Primero!</ion-card-subtitle>
     <ion-card-content>
-      Intenta obtener la vitamina D de alimentos o suplementos vitamínicos, de esta forma no aumentarás el riesgo de cáncer de piel. 
+      Intenta obtener la vitamina D de alimentos o suplementos vitamínicos, de esta forma no aumentarás el riesgo de cáncer de piel. Aquí tienes algunos ejemplos:
+      <img class = "img" src = '../assets/img/vitaminaD.jpg'> 
     </ion-card-content>
   </ion-card>
   <ion-card class="card" color="light">
-    <ion-card-subtitle>Tú seguridad Primero!</ion-card-subtitle>
+    <ion-card-subtitle>¡Tú seguridad Primero!</ion-card-subtitle>
     <ion-card-content>
       Si no estás seguro/a de la intensidad de los rayos del sol, haz la prueba de la sombra: si la sombra es más pequeña que tú es momento de que protejas.
     </ion-card-content>
   </ion-card>
   <ion-card class="card" color="light">
-    <ion-card-subtitle>Atención!</ion-card-subtitle>
+    <ion-card-subtitle>¡Tú seguridad Primero!</ion-card-subtitle>
     <ion-card-content>
-      Ten precaución en la playa o zonas con nieve, la arena, el agua y la nieve aumentan la cantidad de radiación UV que recibes.
-    </ion-card-content>
-  </ion-card>
-  <ion-card class="card" color="light">
-    <ion-card-subtitle>Tú seguridad Primero!</ion-card-subtitle>
-    <ion-card-content>
-      Incluso bajo el agua podrás quemarte, pues sigues recibiendo rayos UV que atraviesan la superficie del agua.S
+      Ten precaución en la playa o zonas con nieve, la arena y el agua aumentan la cantidad de radiación UV que recibes. ¡Importante! Incluso bajo el agua podrías quemarte. 
+      <br><img class = "img" src = '../assets/img/rayos_agua.jpg'> 
     </ion-card-content>
   </ion-card>
 </ion-content>

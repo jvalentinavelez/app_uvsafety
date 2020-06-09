@@ -1,30 +1,44 @@
 <ion-header>
-  <ion-button (click)="dismissModal()"> Cerrar
-  </ion-button>
+  <ion-toolbar>
+    <ion-title>Ropa Adecuada</ion-title>
+    <ion-button slot="end" (click)="dismissModal()" fill="white" color="white"> Cerrar</ion-button>
+    </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-card class="card" color="light">
-    <ion-card-title> 1.
-    </ion-card-title>
+    <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
     <ion-card-content>
-      <ion-icon name="sunny-outline" slot="start"></ion-icon>
-      La ropa provee diferentes niveles de protección contra los rayos UV. La ropa seca generalmente protege mejor que la ropa mojada.  
+      La ropa provee protección contra los rayos UV. Dato importante: La ropa seca brinda mayor protección que la ropa mojada.
     </ion-card-content>
   </ion-card>
   <ion-card class="card" color="light">
-    <ion-card-title> 2.
-    </ion-card-title>
+    <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
     <ion-card-content>
-      <ion-icon name="sunny-outline" slot="start"></ion-icon>
-      Un sombrero que tenga un ala a su alrededor de por lo menos 2 a 3 pulgadas es ideal ya que protege las áreas que a menudo están expuestas a los intensos rayos del sol, como las orejas, los ojos, la frente, la nariz y el cuero cabelludo.
+      Si realizas actividades en el agua, verifica que los productos que utilizas vengan con filtros UV (Buzo, gafas, gorro).
     </ion-card-content>
   </ion-card>
   <ion-card class="card" color="light">
-    <ion-card-title> 3.
-    </ion-card-title>
+    <img class = "img" src = '../assets/img/actividades_agua.PNG'>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
     <ion-card-content>
-      <ion-icon name="sunny-outline" slot="start"></ion-icon>
-      Ten presente que cubrirse no bloquea todos los rayos UV. Si puedes ver la luz a través de la tela, los rayos UV también pueden traspasarla.
+      El cuero cabelludo necesita ser protegido del sol, especialmente si tienes el cabello corto o la exposición será prolongada. El método más efectivo para protegerte: utiliza una gorra o sombrero. 
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <img class = "img" src = '../assets/img/sombreros.PNG'>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
+    <ion-card-content>
+      Un sombrero (con un ala de al menos 2-3 pulgadas) ayudará a que protejas no solo tu cuero cabelludo sino también tu rostro, frente, nariz e incluso las orejas.
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <ion-card-subtitle>¡Importante!</ion-card-subtitle>
+    <ion-card-content>
+      Ten presente que cubrirse no bloquea todos los rayos UV. Un truco: si puedes ver la luz a través de la tela, los rayos UV también pueden traspasarla.
     </ion-card-content>
   </ion-card>
 </ion-content>

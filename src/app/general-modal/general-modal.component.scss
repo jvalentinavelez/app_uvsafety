@@ -2,7 +2,13 @@ ion-content{
     --ion-background-color:#AAD9FF; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+ion-title{
+    margin-left: 2%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+}
 .card{
+    image-rendering: auto;
     text-align: justify;
     text-justify: inter-word;
     border-radius: 5px;
@@ -14,8 +20,8 @@ ion-card-subtitle{
     margin-top: 2%;
 }
 
-img{
-    position: center;
-    font-size: larger;
-    font-weight: 900;
+.img{
+    image-rendering: auto;
+    image-resolution: 1000dpi;
 }
+
