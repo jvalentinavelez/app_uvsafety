@@ -26,7 +26,7 @@ export class HomePage {
   uv:any;
   risk:string;
   riskicon:any;
-  apiKey='063ceea0954c41e3823147cf7956b1cd';
+  apiKey='a7b5abe134344aea83ec6f5cdaf18606';
   constructor(
     public router: Router,
     public weatherService:WeatherService, 
