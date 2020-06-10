@@ -8,7 +8,18 @@ ion-toolbar{
     background-color: #0073b5;
     font-weight: 300;
 }
-
+ion-card-subtitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.card{
+    image-rendering: auto;
+    text-align: justify;
+    text-justify: inter-word;
+    border-radius: 5px;
+}
 .button{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: whitesmoke;
@@ -25,6 +36,13 @@ ion-toolbar{
     text-align: center;
     font-weight: 550;
 }
+.title2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-weight: 550;
+    margin-top: 6%;
+    margin-bottom: 4%;
+}
 
 .icon{
     margin: 17px 15px 10px 15px;
@@ -37,7 +55,7 @@ ion-toolbar{
     margin: 8px 5px 8px 10px;
 }
 .card2{
-    width: 40%;
+    width: 45%;
     background: #FBFF00 ;
     border-radius: 10px;
     margin: 8px 5px 8px 10px;
@@ -60,7 +78,7 @@ ion-toolbar{
     width: 95%;
     background: #AA55F8  ;
     border-radius: 10px;
-    margin: 8px 5px 8px 10px;
+    margin: 8px 5px 30px 10px;
 }
 
 .card6{
