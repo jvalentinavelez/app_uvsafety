@@ -2,11 +2,20 @@ ion-content{
     --ion-background-color:#AAD9FF; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 ion-title{
     margin-left: 2%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 400;
+}
+ion-toolbar{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+    background-color: #0073b5 ;
+    font-weight: 300;
+}
+button{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: whitesmoke;  
 }
 .card{
     text-align: justify;

@@ -2,6 +2,18 @@ ion-content{
     --ion-background-color:#AAD9FF; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+ion-toolbar{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: #0073b5;
+    font-weight: 300;
+}
+
+.button{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+     
+}
 .title{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 15px 10px 15px 15px;
@@ -57,7 +69,3 @@ ion-content{
     border-radius: 10px;
     margin: 8px 5px 8px 10px;
 }
-
-ion-content ion-toolbar {
-    --background: rgb(255, 255, 255);
-  }
