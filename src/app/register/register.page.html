@@ -1,43 +1,69 @@
 <ion-header no-border>
-  <ion-toolbar color="light">
+  <ion-toolbar color="blue">
     <ion-title text-center>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-<!--img class="icon" src="assets/icon/register.svg" alt=""-->
+<br>
 <ion-item color="light">
-  <ion-label position="floating" > Nombre Completo</ion-label>
-  <ion-input type="text" [(ngModel)]="name" name="name" placeholder="Ingresa tu nombre completo"></ion-input>
+  <ion-label position="floating" class="ion-text-wrap" > Nombre Completo</ion-label>
+  <ion-input type="text" [(ngModel)]="name" name="name" placeholder="Ingresa tu nombre completo" class = "selecciona"></ion-input>
 </ion-item>
-<br><br>
-<ion-item color="light">
+<br>
+<ion-item color="light" >
   <ion-label position="floating" class="ion-text-wrap"> Fecha de nacimiento</ion-label>
-  <ion-datetime placeholder="Selecciona tu fecha de nacimiento" displayFormat="DD/MMM/YYYY" [(ngModel)]="birthdate" min="1921-03-11" max="2015-12-15" monthNames="ENE, FEB, MAR, ABR, MAY, JUN, JUL, AGO, SET, OCT, NOV, DIC"></ion-datetime>
+  <ion-datetime placeholder="Selecciona tu fecha de nacimiento" displayFormat="DD/MMM/YYYY" class = "seleccionaFecha" [(ngModel)]="birthdate" min="1921-03-11" max="2015-12-15" monthNames="ENE, FEB, MAR, ABR, MAY, JUN, JUL, AGO, SET, OCT, NOV, DIC"></ion-datetime>
 </ion-item>
-<br><br>
+<br>
 <ion-item color="light">
   <ion-label position="floating" class="ion-text-wrap"> Género</ion-label>
-  <ion-select placeholder="Selecciona tu género" color="dark" [(ngModel)]="gender">
+  <ion-select placeholder="Selecciona tu género" class = "selecciona" [(ngModel)]="gender">
     <ion-select-option value="m">Mujer</ion-select-option>
     <ion-select-option value="h">Hombre</ion-select-option>
      </ion-select>
 </ion-item>
-<br><br>
+<br>
 <ion-item color="light">
   <ion-label position="floating" class="ion-text-wrap"> Tipo de piel</ion-label>
-  <ion-select placeholder="Selecciona tu tipo de piel" color="dark" [(ngModel)]="skin">
-    <ion-select-option value="uno">Blanca, con muchas pecas</ion-select-option>
-    <ion-select-option value="dos">Blanca</ion-select-option>
-    <ion-select-option value="tres">Blanca, mínima tonalidad marrón</ion-select-option>
-    <ion-select-option value="cuatro">Marrón, tonalidad intermedia</ion-select-option>
-    <ion-select-option value="cinco">Marrón intenso</ion-select-option>
-    <ion-select-option value="seis">Negra, tonalidad intensa</ion-select-option>
+  <ion-select color= #0073b5 placeholder="Selecciona tu tipo de piel" class = "selecciona"  [(ngModel)]="skin">
+    <ion-select-option class = "selecciona piel" value="uno">Tipo I</ion-select-option>
+    <ion-select-option value="dos">Tipo II</ion-select-option>
+    <ion-select-option value="tres">Tipo III</ion-select-option>
+    <ion-select-option value="cuatro">Tipo IV</ion-select-option>
+    <ion-select-option value="cinco">Tipo V</ion-select-option>
+    <ion-select-option value="seis">Tipo VI</ion-select-option>
   </ion-select>
 </ion-item>
-<br><br>
+<br>
+<ion-card class="card" color="light">
+  <ion-card-subtitle>¿Cómo saber que tipo de piel tengo?</ion-card-subtitle>
+  <ion-card-content>
+    <ion-list class = "noazul">
+      <ion-label><p class = "option">Tipo I: </p>
+        <p class = "options">Piel blanca con muchas pecas: siempre te quemas con facilidad y no te bronceas.</p>
+      </ion-label>
+      <ion-label><p class = "option">Tipo II: </p>
+        <p class = "options">Piel blanca: siempre te quemas pero puedes llegar a broncearte mínimamente.</p>
+      </ion-label>
+      <ion-label><p class = "option">Tipo III: </p>
+        <p class = "options">Piel blanca con mínima tonalidad marrón: puedes quemarte y puedes broncearte gradualmente</p>
+      </ion-label>
+      <ion-label><p class = "option">Tipo IV: </p>
+        <p class = "options">Piel de tono maron más o menos intenso: puedes presentar quemaduras mínimas, siempre te bronceas.</p>
+      </ion-label>
+      <ion-label><p class = "option">Tipo V: </p>
+        <p class = "options">piel marrón intenso: raramente te quemas y te bronceas con intensidad.</p>
+      </ion-label>
+      <ion-label><p class = "option">Tipo VI: </p>
+        <p class = "options">Piel negra: nunca te quemas y te bronceas profundamente.</p>
+      </ion-label>
+    </ion-list>    
+  </ion-card-content>
+</ion-card>
+<br>
 <ion-item color="light">
   <ion-label position="floating" class="ion-text-wrap"> SPF </ion-label>
-  <ion-select placeholder="Selecciona tu SPF" color="dark" [(ngModel)]="spf">
+  <ion-select placeholder="Selecciona tu SPF" class = "selecciona" color="light" [(ngModel)]="spf">
     <ion-select-option value=0> 0</ion-select-option>
     <ion-select-option value=10 >10</ion-select-option>
     <ion-select-option value=20 >20</ion-select-option>
@@ -51,25 +77,22 @@
     <ion-select-option value=100 >100</ion-select-option>
   </ion-select>
 </ion-item>
-<br><br>
-<ion-item color="light">
-  <ion-label position="floating" > Correo electrónico</ion-label>
-  <ion-input type="text" [(ngModel)]="email" name="email" placeholder="Correo electrónico"></ion-input>
-</ion-item>
-<br><br>
-<ion-item color="light">
-  <ion-label position="floating" > Contraseña</ion-label>
-  <ion-input  type="password" [(ngModel)]="password" name="password" placeholder="Contraseña"></ion-input>
-</ion-item>
-<br><br>
- <ion-item color="light">
-  <ion-label position="floating" > Confirmar contraseña</ion-label>  
-  <ion-input type="password" [(ngModel)]="confir_password" name="confir_password" placeholder="Confirmar contraseña"></ion-input> 
-</ion-item>
-
-
-<ion-button color="dark" expand="block" (click)="OnSubmitRegister()" [disabled]="disabledButton">Registrarse</ion-button>
 <br>
-<p class="registertext" text-center routerLink="/login">Ya tengo cuenta</p>
-
+<ion-item color="light">
+  <ion-label position="floating" class="ion-text-wrap"  > Correo electrónico</ion-label>
+  <ion-input type="text" [(ngModel)]="email" name="email" placeholder="Correo electrónico" class = "selecciona"></ion-input>
+</ion-item>
+<br>
+<ion-item color="light">
+  <ion-label position="floating" class="ion-text-wrap" > Contraseña</ion-label>
+  <ion-input  type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" class = "selecciona"></ion-input>
+</ion-item>
+<br>
+ <ion-item color="light">
+  <ion-label position="floating" class="ion-text-wrap" > Confirmar contraseña</ion-label>  
+  <ion-input type="password" [(ngModel)]="confir_password" name="confir_password" placeholder="Confirmar contraseña" class = "selecciona"></ion-input> 
+</ion-item>
+<br>
+<ion-button class = "button" color=blue expand="block" (click)="OnSubmitRegister()" [disabled]="disabledButton">Registrarse</ion-button>
+<p class="registertext" text = "center" routerLink="/login">Ya tengo cuenta</p>
 </ion-content>

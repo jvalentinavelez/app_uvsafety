@@ -1,22 +1,20 @@
-<ion-header>
-  <ion-toolbar color="light">
+<ion-header no-border> 
+  <ion-toolbar color="blue">
     <ion-title text-center>Iniciar Sesión</ion-title>
   </ion-toolbar>
 </ion-header>
-<br><br><br><br>
 <ion-content padding>
+<br>
 <ion-item color="light">
-  <ion-label position="floating"> Correo electrónico <span class="text-danger">*</span></ion-label>
+  <ion-label class = "tipo" position="floating"> Correo electrónico <span class="text-danger">*</span></ion-label>
   <ion-input type="text" name="email" required="true" [(ngModel)]="email" ngDefaultControl placeholder="Ingresa tu correo"></ion-input>
 </ion-item>
+<br>
 <ion-item color="light">
-  <ion-label position="floating"> Contraseña <span class="text-danger">*</span></ion-label>
-  <ion-input type="password" name="password"  required="true" [(ngModel)]="password" ngDefaultControl placeholder="Contraseña"></ion-input>
+  <ion-label class = "tipo" position="floating"> Contraseña <span class="text-danger">*</span> </ion-label>
+  <ion-input  type="password" name="password"  required="true" [(ngModel)]="password" ngDefaultControl placeholder="Contraseña"></ion-input>
 </ion-item>
 <br>
-<ion-button class="ion-margin-top" type="submit" (click)="onSubmitLogin()" expand="block" >Entrar</ion-button>
-<br>
+<ion-button class="ion-margin-top" color=blue type="submit" (click)="onSubmitLogin()" expand="block" >Entrar</ion-button>
 <p class="registertext" routerLink="/register">Crear cuenta</p>
-
-
 </ion-content>

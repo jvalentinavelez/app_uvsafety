@@ -1,125 +1,295 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Recordatorios</ion-title>
-    <ion-button slot="end" (click)="returnhome()" fill="white" color="white"> 
+  <ion-toolbar color = "blue">
+    <ion-title>¡Para mi!</ion-title>
+    <ion-button class = "button" slot="end" (click)="returnhome()" color = #0069a6> 
     <ion-icon slot="icon-only" name="home-outline"></ion-icon></ion-button>
   </ion-toolbar>
 </ion-header>
 <ion-content [ngClass]="{check:Protection(dataPass)}">
 
   <div *ngIf="noRiesgo">
-    <ion-label floating> En este momento no hay riesgo </ion-label>
-    <br><br>
-    <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
-      <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+    <div class = "title">
+      <ion-label class = "title" undefined> En este momento no hay riesgo</ion-label>
     </div>
+    <ion-grid>
+      <ion-row> 
+        <ion-col size = "3" class="icon" >
+          <img class="icon" src="../assets/img/protector-final.png"  width="70" height="70" >
+        </ion-col>
+        <ion-col size = "9" class = "legend">
+          <ion-label class = "legend">¡Recuerda usar tu protector solar!</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size = "3" class="icon">
+          <img  src="../assets/img/escudo-final.png"  width="75" height="75" >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend">
+          <ion-label>Así tu piel estará protegida por: {{timeConvert(DEM)}}.</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
   
   <div *ngIf="bajo">
-    <ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
-    <br><br>
-    <ion-label floating> En este momento el índice UV indica un nivel bajo</ion-label>
-    <br>
-    <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
-      <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+    <div class = "title">
+      <ion-label class = "title" undefined> ¡No olvides protegerte!</ion-label>
     </div>
-    <div class="icon"><img src="../assets/img/gafas.png">
-       <ion-label>Recuerda llevar tus gafas de sol</ion-label>
+    <div class = "subtitle">
+      <ion-label undefined> En este momento el índice UV indica: </ion-label>
+      <ion-label id = "uv" undefined> ¡Bajo!</ion-label>
     </div>
-    <br>
-    <div class="icon"><img src="../assets/img/protector.png">
-        <ion-label>Recuerda utilizar protector solar</ion-label>
+    <ion-grid>
+      <ion-row> 
+        <ion-col size = "3" class="icon" >
+          <img class="icon" src="../assets/img/protector-final.png"  width="70" height="70" >
+        </ion-col>
+        <ion-col size = "9" class = "legend">
+          <ion-label class = "legend">¡Recuerda usar tu protector solar!</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row> 
+        <ion-col size = "3" class="icon">
+          <img  src="../assets/img/escudo-final.png"  width="75" height="75" >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend">
+          <ion-label  >Así tu piel estará protegida por: {{timeConvert(DEM)}}.</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class = "title">
+      <ion-label undefined> ¡Sácale provecho a tus accesorios! </ion-label>
     </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size = "3" class="icon" >
+          <img src="../assets/img/gafas-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend2">
+          <ion-label> A lucir esas gafas de sol. Además de cuidar tus ojos, tendrás un estilo más auténtico y rockero. </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
   </div>
   
   <div *ngIf="moderado">
-    <ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
-    <br><br>
-    <ion-label floating> En este momento el índice UV indica un nivel moderado</ion-label>
-    <br>
-    <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
-      <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+    <div class = "title">
+      <ion-label class = "title" undefined> ¡No olvides protegerte!</ion-label>
     </div>
-    <div class="icon"><img src="../assets/img/gafas.png">
-        <ion-label>Recuerda llevar tus gafas de sol</ion-label>
+    <div class = "subtitle">
+      <ion-label undefined> En este momento el índice UV indica: </ion-label>
+      <ion-label id = "uv" undefined> ¡Moderado!</ion-label>
     </div>
-    <br>
-    <div class="icon"><img src="../assets/img/gorra.png">
-         <ion-label>Utiliza tu sombrero favorito</ion-label>
+    <ion-grid>
+      <ion-row> 
+        <ion-col size = "3" class="icon" >
+          <img class="icon" src="../assets/img/protector-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "9" class = "legend">
+          <ion-label class = "legend">¡Recuerda usar tu protector solar!</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row> 
+        <ion-col size = "3" class="icon">
+          <img  src="../assets/img/escudo-final.png"  width="75" height="75" >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend">
+          <ion-label  >Así tu piel estará protegida por: {{timeConvert(DEM)}}.</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class = "title">
+      <ion-label undefined> ¡Sácale provecho a tus accesorios! </ion-label>
     </div>
-    <br>
-    <div class="icon"><img src="../assets/img/protector.png">
-        <ion-label>Recuerda utilizar protector solar</ion-label>
-    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size = "3" class="icon" >
+          <img src="../assets/img/gafas-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend2">
+          <ion-label  >A lucir esas gafas de sol. Además de cuidar tus ojos, tendrás un estilo más auténtico y rockero.</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size = "3" class="icon" >
+          <img src="../assets/img/gorra-final.png" width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend2">
+          <ion-label  > Usa Tu gorra, sombrero o pava favorita. No olvides que además de cuidarte, ¡sirven para complementar tu look! </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
   </div>
+
+       
+
   
   <div *ngIf="alto">
-    <ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
-    <br><br>
-    <ion-label floating> En este momento el índice UV indica un nivel alto</ion-label>
-    <br>
-    <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
-      <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+    <div class = "title">
+    <ion-label class = "title" undefined> ¡No olvides protegerte!</ion-label></div>
+    <div class = "subtitle">
+      <ion-label undefined> En este momento el índice UV indica: </ion-label>
+      <ion-label id = "uv" undefined> ¡Alto!</ion-label>
     </div>
-    <div class="icon"><img src="../assets/img/gafas.png">
-        <ion-label>Recuerda llevar tus gafas de sol</ion-label>
+    <ion-grid>
+      <ion-row> 
+        <ion-col size = "3" class="icon" >
+          <img class="icon" src="../assets/img/protector-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "9" class = "legend">
+          <ion-label class = "legend">¡Recuerda usar tu protector solar!</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row> 
+        <ion-col size = "3" class="icon">
+          <img  src="../assets/img/escudo-final.png"  width="75" height="75" >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend">
+          <ion-label  >Así tu piel estará protegida por: {{timeConvert(DEM)}}.</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class = "title">
+      <ion-label undefined> ¡Sácale provecho a tus accesorios! </ion-label>
     </div>
-    <br>
-    <div class="icon"><img src="../assets/img/gorra.png">
-         <ion-label>Utiliza tu sombrero favorito</ion-label>
-    </div>
-    <br>
-    <div class="icon"><img src="../assets/img/camiseta.png">
-           <ion-label>Cubre tus manos y pies</ion-label>
-    </div>
-    <br>  
-    <div class="icon"><img src="../assets/img/protector.png">
-        <ion-label>Recuerda utilizar protector solar</ion-label>
-    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size = "3" class="icon" >
+          <img src="../assets/img/gafas-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend2">
+          <ion-label  >A lucir esas gafas de sol. Además de cuidar tus ojos, tendrás un estilo más auténtico y rockero.</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size = "3" class="icon" >
+          <img src="../assets/img/gorra-final.png" width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend2">
+          <ion-label  > Usa Tu gorra, sombrero o pava favorita. No olvides que además de cuidarte, ¡sirven para complementar tu look! No olvides que además de cuidarte, ¡sirven para complementar tu look! </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size = "3" class="icon" >
+          <img src="../assets/img/chaqueta-final.png" width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend2">
+          <ion-label>¡No te olvides de cuidar tus manos, brazos y pies! Un saco, blazer o chaqueta pueden ayudarte, si hace mucho calor, puedes elegir una prenda ligera o de algodón. </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>  
   </div>
+    
   
   <div *ngIf="muyAlto">
-    <ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
-    <br><br>
-    <ion-label floating> En este momento el índice UV indica un nivel muy alto</ion-label>
-    <br>
-    <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
-      <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+    <div class = "title">
+      <ion-label class = "title" undefined> ¡No olvides protegerte!</ion-label>
     </div>
-    <div class="icon"><img src="../assets/img/gafas.png">
-        <ion-label>Recuerda llevar tus gafas de sol</ion-label>
+    <div class = "subtitle">
+      <ion-label undefined> En este momento el índice UV indica: </ion-label>
+      <ion-label id = "uv" undefined> ¡Muy Alto!</ion-label>
     </div>
-    <br>
-    <div class="icon"><img src="../assets/img/gorra.png">
-         <ion-label>Utiliza tu sombrero favorito</ion-label>
+    <ion-grid>
+      <ion-row> 
+        <ion-col size = "3" class="icon" >
+          <img class="icon" src="../assets/img/protector-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "9" class = "legend">
+          <ion-label class = "legend">¡Recuerda usar tu protector solar!</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row> 
+        <ion-col size = "3" class="icon">
+          <img  src="../assets/img/escudo-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend">
+          <ion-label  >Así tu piel estará protegida por: {{timeConvert(DEM)}}.</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size = "3" class="icon" >
+          <img src="../assets/img/sombrilla-final.png" width="70" height="70" >
+        </ion-col>
+        <ion-col size = "9" class = "legend">
+          <ion-label > Evita exponerte al sol entre las 12:00 - 16:00 H.</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class = "title">
+      <ion-label undefined> ¡Sácale provecho a tus accesorios! </ion-label>
     </div>
-    <br>
-    <div class="icon"><img src="../assets/img/camiseta.png">
-           <ion-label>Cubre tus manos y pies</ion-label>
-    </div>
-    <br>
-    <div class="icon"><img src="../assets/img/sombrilla.png">
-        <ion-label>Procure no exponerse al sol </ion-label>
-        <ion-label>Evita el sol entre las 12:00 - 16:00 H </ion-label>
-    </div>
-    <br>  
-    <div class="icon"><img src="../assets/img/protector.png">
-        <ion-label>Recuerda utilizar protector solar</ion-label>
-    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size = "3" class="icon" >
+          <img src="../assets/img/gafas-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend2">
+          <ion-label >A lucir esas gafas de sol. Además de cuidar tus ojos, tendrás un estilo más auténtico y rockero.</ion-label>
+        </ion-col>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-col size = "3" class="icon" >
+          <img src="../assets/img/gorra-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend2">
+          <ion-label  > Usa Tu gorra, sombrero o pava favorita. No olvides que además de cuidarte, ¡sirven para complementar tu look! </ion-label>
+        </ion-col>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-col size = "3" class="icon" >
+          <img src="../assets/img/chaqueta-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend2">
+          <ion-label > ¡No te olvides de cuidar tus manos, brazos y pies! Un saco, blazer o chaqueta pueden ayudarte, si hace mucho calor, puedes elegir una prenda ligera o de algodón.</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>  
   </div>
   
-   <div *ngIf="extremo">
-    <ion-label floating> ¡Si vas a salir no olvides esto!</ion-label> 
-    <br><br>
-    <ion-label floating> En este momento el índice UV indica un nivel extremo</ion-label>
-    <div class="icon"><img src="../assets/img/escudo.png"  width="100" height="100" >
-      <ion-label>Tu piel estará protegida por {{timeConvert(DEM)}}</ion-label>
+  <div *ngIf="extremo">
+    <div class = "title">
+      <ion-label undefined> ¡No olvides protegerte!</ion-label>
     </div>
-    <br>
-    <div class="icon"><img src="../assets/img/casa.png">
-      <ion-label> Quédate en casa, evita la exposición al sol</ion-label>
+    <div class = "subtitle">
+      <ion-label undefined> En este momento el índice UV indica: </ion-label>
+      <ion-label id = "uv" undefined> ¡Extremo!</ion-label>
     </div>
-  </div> 
-    
-  </ion-content>
+    <ion-grid>
+      <ion-row> 
+        <ion-col size = "3" class="icon" >
+          <img class="icon" src="../assets/img/protector-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "9" class = "legend">
+          <ion-label class = "legend">¡Recuerda usar tu protector solar!</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size = "3" class="icon">
+          <img  src="../assets/img/escudo-final.png"  width="75" height="75" >
+        </ion-col>
+        <ion-col size = "8.5" class = "legend" >
+          <ion-label >Así tu piel estará protegida por: {{timeConvert(DEM)}}..</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size = "3" class="icon" >
+          <img src="../assets/img/casa-final.png"  width="70" height="70"  >
+        </ion-col>
+        <ion-col size = "9" class = "legend2">
+          <ion-label> Sí puedes, quédate en casa, evita la exposición directa al sol, y si es necesario estar fuera, no olvides protegerte. </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
   

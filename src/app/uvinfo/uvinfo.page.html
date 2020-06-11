@@ -1,27 +1,49 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="blue">
     <ion-title>UV Info</ion-title>
-    <ion-button slot="end" (click)="returnhome()" fill="white" color="white"> 
+    <ion-button class="button" slot="end" (click)="returnhome()" color = #0073b5> 
       <ion-icon slot="icon-only" name="home-outline"></ion-icon></ion-button>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-icon name="add-circle-outline" class = "icon"></ion-icon> <h5  class = "title1">Conoce más sobre los indices UV:</h5>
+  <ion-card class="card" color="light">
+    <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
+    <ion-card-content>
+      Solo el 5% de la radiación solar que llega a la tierra es radiación UV, pero ¡es muy potente.! Hay diferentes tipos: UVA, UVB y UVC. Mientras la radiación UVC es bloqueada por la capa de ozono, la radiación UVA y UVB llega a la tierra y afecta tu piel.
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
+    <ion-card-content>
+      Los rayos UVB son sólo el 5% de los rayos UV restantes, pero son los causantes de los bronceados y, por ende: de las quemaduras solares, también son los más relacionados al ¡cáncer de piel! Estos puedes sentirlos fácilmente: molestan o duelen.
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="card" color="light">
+    <img class = "img" src = '../assets/img/UVA-UVB.PNG'>
+
+  </ion-card>
+  <ion-card class="card" color="light">
+    <ion-card-subtitle>¿Sabías qué?</ion-card-subtitle>
+    <ion-card-content>
+      Los rayos UVA son ese otro 95% de rayos UV que llegan a la tierra, estos NO duelen y por eso pasan desapercibidos, pero sus efectos son importantes: envejecimiento de la piel, formación de arrugas, enfermedades de pigmentación, y en menor medida, cáncer de piel. 
+    </ion-card-content>
+  </ion-card>
+  <h5  class = "title2">Escala de índices UV:</h5>
   <ion-card class = "card1">
-    <ion-card-title class = "title">Bajo</ion-card-title>
+    <ion-card-title class = "title">Bajo [0-2]</ion-card-title>
   </ion-card>
   <ion-card class="card2" >
-    <ion-card-title class = "title"> Moderado </ion-card-title>
+    <ion-card-title class = "title"> Moderado [3-5]</ion-card-title>
   </ion-card>
   <ion-card class="card3" >
-    <ion-card-title class = "title"> Alto </ion-card-title>
+    <ion-card-title class = "title"> Alto [6-7]</ion-card-title>
   </ion-card>
   <ion-card class="card4" >
-    <ion-card-title class = "title"> Muy alto </ion-card-title>
+    <ion-card-title class = "title"> Muy alto [8-10]</ion-card-title>
   </ion-card>
   <ion-card class="card5" >
-    <ion-card-title class = "title"> Extremo </ion-card-title>
+    <ion-card-title class = "title"> Extremo [11 o más]</ion-card-title>
   </ion-card> 
 </ion-content>
 
