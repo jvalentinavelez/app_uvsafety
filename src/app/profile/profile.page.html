@@ -1,69 +1,67 @@
 <ion-app>
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color = blue>
       <ion-title>Tu perfil</ion-title>
-      <ion-button slot="end" (click)="returnhome()" fill="white" color="white"> 
+      <ion-button slot="end" (click)="returnhome()"  color = #0073b5> 
         <ion-icon slot="icon-only" name="home-outline"></ion-icon></ion-button>
     </ion-toolbar>
   </ion-header>
-
   <ion-content>
-    <br>
     <ion-list color="primary">
-      <ion-list-header  color="dark">Aquí puedes ver tus datos</ion-list-header>
-      <ion-item color="dark" *ngIf="name" > 
-        <ion-label>Nombre: {{ name }}</ion-label>
+      <h5 class="notificacion1" color="blue">Aquí puedes ver tus datos</h5>
+      <h5 class = "subtitle" >Nombres y apellidos</h5>
+      <ion-item color="light" *ngIf="name" class = "item"> 
+        <ion-label class = "datos"> {{ name }} </ion-label>      
       </ion-item>
-
-      <ion-item  color="dark" *ngIf="email" > 
-        <ion-label>Correo electrónico: {{ email }}</ion-label>
+      <h5 class = "subtitle">Correo electrónico</h5>
+      <ion-item  color="light" *ngIf="email" > 
+        <ion-label class = "datos">{{ email }}</ion-label>
       </ion-item>
-
-      <ion-item color="dark"> 
-        <ion-label *ngIf="skin == 'uno' ">Tipo de piel: Blanca, con muchas pecas</ion-label>
-        <ion-label *ngIf="skin == 'dos' ">Tipo de piel: Blanca</ion-label>
-        <ion-label *ngIf="skin == 'tres' ">Tipo de piel: Blanca, con mínima tonalidad marrón</ion-label>
-        <ion-label *ngIf="skin == 'cuatro' ">Tipo de piel: Marrón, de tonalidad intermedia</ion-label>
-        <ion-label *ngIf="skin == 'cinco' ">Tipo de piel: Marrón intenso</ion-label>
-        <ion-label *ngIf="skin == 'seis' ">Tipo de piel: Negra, tonalidad intensa</ion-label>
+      <h5 class = "subtitle">Tipo de Piel</h5>
+      <ion-item color="light"> 
+        <ion-label *ngIf="skin == 'uno' " class = "datos">I: Siempre se quema.</ion-label>
+        <ion-label *ngIf="skin == 'dos' " class = "datos">II: Siempre se quema, puede broncearse.</ion-label>
+        <ion-label *ngIf="skin == 'tres' " class = "datos">III: Puede quemarse y broncearse.</ion-label>
+        <ion-label *ngIf="skin == 'cuatro' " class = "datos">IV: Puede quemarse, siempre broncea.</ion-label>
+        <ion-label *ngIf="skin == 'cinco' " class = "datos">V: Broncea con intensidad.</ion-label>
+        <ion-label *ngIf="skin == 'seis' " class = "datos">VI: Siempre se broncea. </ion-label>
       </ion-item>
-      <ion-item color="dark"> 
-        <ion-label *ngIf="spf == 0 ">SPF: 0 </ion-label>
-        <ion-label *ngIf="spf == 10 ">SPF: 10 </ion-label>
-        <ion-label *ngIf="spf == 20 ">SPF: 20</ion-label>
-        <ion-label *ngIf="spf == 30 ">SPF: 30</ion-label>
-        <ion-label *ngIf="spf == 40 ">SPF: 40</ion-label>
-        <ion-label *ngIf="spf == 50 ">SPF: 50</ion-label>
-        <ion-label *ngIf="spf == 60 ">SPF: 60</ion-label>
-        <ion-label *ngIf="spf == 70 ">SPF: 70</ion-label>
-        <ion-label *ngIf="spf == 80 ">SPF: 80</ion-label>
-        <ion-label *ngIf="spf == 90 ">SPF: 90</ion-label>
-        <ion-label *ngIf="spf == 100 ">SPF: 100</ion-label>
+      <h5 class = "subtitle">Factor de su protector solar</h5>
+      <ion-item color="light"> 
+        <ion-label *ngIf="spf == 0 " class = "datos">SPF: 0 </ion-label>
+        <ion-label *ngIf="spf == 10 " class = "datos">SPF: 10 </ion-label>
+        <ion-label *ngIf="spf == 20 " class = "datos">SPF: 20</ion-label>
+        <ion-label *ngIf="spf == 30 " class = "datos">SPF: 30</ion-label>
+        <ion-label *ngIf="spf == 40 " class = "datos">SPF: 40</ion-label>
+        <ion-label *ngIf="spf == 50 " class = "datos">SPF: 50</ion-label>
+        <ion-label *ngIf="spf == 60 " class = "datos">SPF: 60</ion-label>
+        <ion-label *ngIf="spf == 70 " class = "datos">SPF: 70</ion-label>
+        <ion-label *ngIf="spf == 80 " class = "datos">SPF: 80</ion-label>
+        <ion-label *ngIf="spf == 90 " class = "datos">SPF: 90</ion-label>
+        <ion-label *ngIf="spf == 100 " class = "datos">SPF: 100</ion-label>
       </ion-item>
-      <ion-item color="dark"> 
-        <ion-label *ngIf="gender == 'm' ">Género: Mujer</ion-label>
-        <ion-label *ngIf="gender == 'h' ">Género: Hombre</ion-label>
+      <h5 class = "subtitle">Género</h5>
+      <ion-item color="light" > 
+        <ion-label *ngIf="gender == 'm' " class = "datos">Mujer</ion-label>
+        <ion-label *ngIf="gender == 'h' " class = "datos">Hombre</ion-label>
       </ion-item>
-      <ion-item color="dark"> 
-        <ion-label>Fecha de nacimiento: {{ birthdate}}</ion-label>
+      <h5 class = "subtitle">Fecha de nacimiento</h5>
+      <ion-item color="light" > 
+        <ion-label class = "datos">{{ birthdate}}</ion-label>
       </ion-item>
     </ion-list>
-    <br>
-    <br>
-    <ion-label>Notificaciones</ion-label>
-    <ion-list>
-      <ion-item>
-        <ion-label>Protector solar</ion-label>
+    <h5 class = "notificacion1">Configuración de Notificaciones</h5>
+    <ion-list >
+      <ion-item >
+        <ion-label class = "notificacion"> Protector solar</ion-label>
         <ion-toggle (ionChange)="SolarProtNotifications()" ></ion-toggle>
       </ion-item>
-    
       <ion-item>
-        <ion-label>Cuidados personales</ion-label>
+        <ion-label class = "notificacion"> Cuidados personales </ion-label>
         <ion-toggle (ionChange)="CuidadosPersonalesNotifications()"></ion-toggle>
       </ion-item>
     </ion-list>
-    <ion-button expand= "block" shape="round" color="primary" (click)="openEditProfile()" >Editar Perfil</ion-button>
-    <br>
+    <ion-button expand= "block" class = "button1" color=blue (click)="openEditProfile()" >Editar Perfil</ion-button>
     <ion-button expand="block" class="buttoncolor" fill="outline" (click)="Onlogout()" fill="white" color="dark">Cerrar sesión</ion-button>
   </ion-content>
 </ion-app>

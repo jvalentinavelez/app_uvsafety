@@ -1,29 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Edita tu perfil</ion-title>
-    <ion-button slot="end" (click)="returnhome()" fill="white" color="white">
+  <ion-toolbar color="blue">
+    <ion-title>Edita tú perfil</ion-title>
+    <ion-button slot="end" (click)="returnhome()" color=#0073b5>
       <ion-icon slot="icon-only" name="home-outline"></ion-icon></ion-button> 
   </ion-toolbar>
 </ion-header>
-
 <ion-content padding>
-
+<br>
   <!--app-loading *ngIf="busy"></app-loading-->
   <div *ngIf="!busy">
     <div class="profile-info">
-      <ion-item>
-				<ion-label position="floating">Nombre</ion-label>
-				<ion-input [(ngModel)]="name"></ion-input>
+      <ion-item color="light">
+				<ion-label class = "selecciona" position="floating">Nombre</ion-label>
+				<ion-input class = "selecciona" [(ngModel)]="name"></ion-input>
       </ion-item>
-      
-			<ion-item>
-				<ion-label position="floating">Email</ion-label>
-				<ion-input [(ngModel)]="email"></ion-input>
+      <br>
+			<ion-item color="light">
+				<ion-label class = "selecciona" position="floating">Email</ion-label>
+				<ion-input class = "selecciona" [(ngModel)]="email"></ion-input>
       </ion-item>
-
-			<ion-item>
-        <ion-label position="floating">SPF</ion-label>
-        <ion-select placeholder="Selecciona tu SPF" color="dark" [(ngModel)]="spf">
+      <br>
+			<ion-item color="light">
+        <ion-label class = "selecciona" position="floating">SPF</ion-label>
+        <ion-select class = "selecciona" color = black placeholder="Selecciona tu SPF" color="dark" [(ngModel)]="spf">
           <ion-select-option value=0> 0</ion-select-option>
           <ion-select-option value=10 >10</ion-select-option>
           <ion-select-option value=20 >20</ion-select-option>
@@ -37,21 +36,19 @@
           <ion-select-option value=100 >100</ion-select-option>
         </ion-select>
       </ion-item>
-
-
-			<ion-item>
-				<ion-label position="floating">Nueva contraseña</ion-label>
-				<ion-input [(ngModel)]="newpassword"></ion-input>
-			</ion-item>
-
-			<ion-item>
-				<ion-label position="floating">Ingresa tu contraseña actual</ion-label>
-				<ion-input required [(ngModel)]="password"></ion-input>
-			</ion-item>
-
-      <ion-button fill="solid" expand="block" color="dark" (click)="updateDetails()">Save</ion-button>
-      <ion-button fill="solid" expand="block" color="dark" (click)="returnprofile()">Regresar al Perfil</ion-button>
-		</div>
+      <br>
+			<ion-item color="light">
+				<ion-label class = "selecciona" position="floating">Nueva contraseña</ion-label>
+				<ion-input class = "selecciona" [(ngModel)]="newpassword"></ion-input>
+      </ion-item>
+      <br>
+			<ion-item color="light">
+				<ion-label class = "selecciona" position="floating">Ingresa tu contraseña actual</ion-label>
+				<ion-input class = "selecciona" required [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <br>
+      <ion-button fill="solid" expand="block" class ="button1" color="blue" (click)="updateDetails()">GUARDAR</ion-button>
+      <ion-button fill="outline" expand="block" class ="button2" fill="white" color="dark" (click)="returnprofile()">Regresar al Perfil</ion-button>     
+    </div>
   </div>
-
 </ion-content>
