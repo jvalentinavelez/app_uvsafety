@@ -45,7 +45,7 @@ export class EditProfilePage implements OnInit {
   async presentAlert(title: string, content: string) {
 		const alert = await this.alertController.create({
 			header: title,
-			message: content,
+			subHeader: content,
 			buttons: ['OK']
 		})
 
