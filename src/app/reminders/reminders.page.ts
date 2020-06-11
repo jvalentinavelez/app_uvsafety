@@ -122,7 +122,49 @@ export class RemindersPage implements OnInit {
         this.DEM = (20*Number(this.spf)/40)
       }
     }
-    else if (this.skin == 'cuatro', this.skin == 'cinco',this.skin == 'seis'){
+    else if (this.skin == 'cuatro'){
+      if(this.risk == 'Sin riesgo'){
+        this.noRiesgo = true;
+        this.DEM = (100*Number(this.spf)/6)
+      }else if(this.risk == 'Bajo'){
+        this.bajo = true;
+        this.DEM = (100*Number(this.spf)/6)
+      }else if(this.risk == 'Moderado'){
+        this.moderado = true;
+        this.DEM = (50*Number(this.spf)/12)
+      }else if(this.risk == 'Alto'){
+        this.alto = true;
+        this.DEM = (35*Number(this.spf)/20)
+      }else if(this.risk == 'Muy Alto'){
+        this.muyAlto = true;
+        this.DEM = (25*Number(this.spf)/20)
+      }else if(this.risk == 'Extremo'){
+        this.extremo = true;
+        this.DEM = (25*Number(this.spf)/30)
+      }
+    }
+    else if (this.skin == 'cinco'){
+      if(this.risk == 'Sin riesgo'){
+        this.noRiesgo = true;
+        this.DEM = (100*Number(this.spf)/6)
+      }else if(this.risk == 'Bajo'){
+        this.bajo = true;
+        this.DEM = (100*Number(this.spf)/6)
+      }else if(this.risk == 'Moderado'){
+        this.moderado = true;
+        this.DEM = (50*Number(this.spf)/12)
+      }else if(this.risk == 'Alto'){
+        this.alto = true;
+        this.DEM = (35*Number(this.spf)/20)
+      }else if(this.risk == 'Muy Alto'){
+        this.muyAlto = true;
+        this.DEM = (25*Number(this.spf)/20)
+      }else if(this.risk == 'Extremo'){
+        this.extremo = true;
+        this.DEM = (25*Number(this.spf)/30)
+      }
+    }
+    else if (this.skin == 'seis'){
       if(this.risk == 'Sin riesgo'){
         this.noRiesgo = true;
         this.DEM = (100*Number(this.spf)/6)
