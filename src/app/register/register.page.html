@@ -23,18 +23,6 @@
      </ion-select>
 </ion-item>
 <br>
-<ion-item color="light">
-  <ion-label position="floating" class="ion-text-wrap"> Tipo de piel</ion-label>
-  <ion-select color= #0073b5 placeholder="Selecciona tu tipo de piel" class = "selecciona"  [(ngModel)]="skin">
-    <ion-select-option class = "selecciona piel" value="uno">Tipo I</ion-select-option>
-    <ion-select-option value="dos">Tipo II</ion-select-option>
-    <ion-select-option value="tres">Tipo III</ion-select-option>
-    <ion-select-option value="cuatro">Tipo IV</ion-select-option>
-    <ion-select-option value="cinco">Tipo V</ion-select-option>
-    <ion-select-option value="seis">Tipo VI</ion-select-option>
-  </ion-select>
-</ion-item>
-<br>
 <ion-card class="card" color="light">
   <ion-card-subtitle>¿Cómo saber que tipo de piel tengo?</ion-card-subtitle>
   <ion-card-content>
@@ -46,7 +34,7 @@
         <p class = "options">Piel blanca: siempre te quemas pero puedes llegar a broncearte mínimamente.</p>
       </ion-label>
       <ion-label><p class = "option">Tipo III: </p>
-        <p class = "options">Piel blanca con mínima tonalidad marrón: puedes quemarte y puedes broncearte gradualmente</p>
+        <p class = "options">Piel blanca con mínima tonalidad marrón: puedes quemarte y puedes broncearte gradualmente.</p>
       </ion-label>
       <ion-label><p class = "option">Tipo IV: </p>
         <p class = "options">Piel de tono maron más o menos intenso: puedes presentar quemaduras mínimas, siempre te bronceas.</p>
@@ -62,7 +50,19 @@
 </ion-card>
 <br>
 <ion-item color="light">
-  <ion-label position="floating" class="ion-text-wrap"> SPF </ion-label>
+  <ion-label position="floating" class="ion-text-wrap"> Tipo de piel</ion-label>
+  <ion-select color= #0073b5 placeholder="Selecciona tu tipo de piel" class = "selecciona"  [(ngModel)]="skin">
+    <ion-select-option class = "selecciona piel" value="uno">Tipo I</ion-select-option>
+    <ion-select-option value="dos">Tipo II</ion-select-option>
+    <ion-select-option value="tres">Tipo III</ion-select-option>
+    <ion-select-option value="cuatro">Tipo IV</ion-select-option>
+    <ion-select-option value="cinco">Tipo V</ion-select-option>
+    <ion-select-option value="seis">Tipo VI</ion-select-option>
+  </ion-select>
+</ion-item>
+<br>
+<ion-item color="light">
+  <ion-label position="floating" class="ion-text-wrap"> SPF (Factor de Protección Solar) </ion-label>
   <ion-select placeholder="Selecciona tu SPF" class = "selecciona" color="light" [(ngModel)]="spf">
     <ion-select-option value=0> 0</ion-select-option>
     <ion-select-option value=10 >10</ion-select-option>
