@@ -47,7 +47,7 @@ export class RegisterPage implements OnInit {
     }else if(this.birthdate==""){
       this.presentToast("Su fecha de nacimiento es requerida");
     }else if(this.email==""){
-      this.presentToast("Su correo electronico es requerido");
+      this.presentToast("Su correo electrónico es requerido");
     }else if(this.password==""){
       this.presentToast("Su contraseña es requerida");
     }else if(this.confir_password!=this.password){

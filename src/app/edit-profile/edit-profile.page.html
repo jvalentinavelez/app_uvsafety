@@ -39,12 +39,12 @@
       <br>
 			<ion-item color="light">
 				<ion-label class = "selecciona" position="floating">Nueva contraseña</ion-label>
-				<ion-input class = "selecciona" [(ngModel)]="newpassword"></ion-input>
+				<ion-input class = "selecciona" type="password" [(ngModel)]="newpassword"></ion-input>
       </ion-item>
       <br>
 			<ion-item color="light">
 				<ion-label class = "selecciona" position="floating">Ingresa tu contraseña actual</ion-label>
-				<ion-input class = "selecciona" required [(ngModel)]="password"></ion-input>
+				<ion-input class = "selecciona" type="password" required [(ngModel)]="password"></ion-input>
       </ion-item>
       <br>
       <ion-button fill="solid" expand="block" class ="button1" color="blue" (click)="updateDetails()">GUARDAR</ion-button>
