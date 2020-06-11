@@ -21,7 +21,7 @@ export class UserinfoService {
   setUser(user:user){
     this.user = user
   }
-  getUID(){
+  getUID(){ //Función usada para identificar los datos del usuario que está loggeado en la aplicación
     if(!this.user){
       if (this.afAuth.auth.currentUser){
         const user = this.afAuth.auth.currentUser
@@ -39,16 +39,16 @@ export class UserinfoService {
 		return this.user.email
 	}
 
-	reAuth(email: string, password: string) {
+	reAuth(email: string, password: string) { //Función que reautentica a un usuario, con el fin de permitirle actualizar sus datos
 		return this.afAuth.auth.currentUser.reauthenticateWithCredential(auth.EmailAuthProvider.credential(email, password))
 	}
-	updatePassword(newpassword: string) {
+	updatePassword(newpassword: string) { //Función que permite actualizar la contraseña que fue almacenada en Firebase
 		return this.afAuth.auth.currentUser.updatePassword(newpassword)
   }
-  updateEmail(newemail: string) {
+  updateEmail(newemail: string) { //Función que permite actualizar el email que fue almacenado en Firebase
 		return this.afAuth.auth.currentUser.updateEmail(newemail)
 	}
-  logout(){
+  logout(){ //Permite al usuario cerrar sesión de la aplicación
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['/login']);
     })

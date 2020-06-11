@@ -12,6 +12,6 @@ export class GetDEMService {
 	serviceData = this.dataSource.asObservable();
 
 	changeDataDEM(data: any){
-		this.dataSource.next(data);
+		this.dataSource.next(data);  //Permite usar variables que se encuentra en .ts diferente al de trabajo
 	}
 }

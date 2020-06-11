@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-//import { AuthenticationService } from '../services/authentication.service';
 import {UserinfoService} from '../services/userinfo.service';
 
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -12,9 +11,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class LoginPage implements OnInit {
   email:string = "";
-  name:string = "";
   password: string = "";
-  piel:string = "";
+
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -23,8 +21,8 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-  async onSubmitLogin() {
-		const { email, password, name, piel } = this
+  async onSubmitLogin() { //Si los datos del usuario se encuentran en la base de datos de Firebase, el usuario podrá ser redirigido al Home
+		const { email, password } = this
 		try {
       const res = await this.afAuth.auth.signInWithEmailAndPassword(email, password)
        if (res.user){
@@ -34,7 +32,7 @@ export class LoginPage implements OnInit {
          })
        }
         this.router.navigate(['/home'])
-		} catch(err) {
+		} catch(err) { //Errores en caso de que se ingresen los datos incorrectos de email y contraseña
 			console.dir(err)
 			if(err.code === "auth/user-not-found") {
 				alert('Los datos son incorrectos o no existe el usuario')

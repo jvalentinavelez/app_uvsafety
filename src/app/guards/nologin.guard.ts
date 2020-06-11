@@ -20,7 +20,8 @@ export class NologinGuard implements CanActivate {
    
       return this.AFauth.authState.pipe(map(auth => {
 
-        if(isNullOrUndefined(auth)){
+        if(isNullOrUndefined(auth)){ //Mediante este Guard se permite que si el usuario ya se encuentra registrado, sin cerrar su sesión, pueda ser redirigido siempre al Home, 
+          //de lo contrario, permanecerá en el Login
          
          return true;
         }else{

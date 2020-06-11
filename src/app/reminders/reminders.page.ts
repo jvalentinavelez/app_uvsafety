@@ -34,7 +34,7 @@ export class RemindersPage implements OnInit {
     private userServ: ServicioService,
     private getDEM: GetDEMService,
     private user: UserinfoService, 
-    private afs: AngularFirestore ) {
+    private afs: AngularFirestore ) { //Se obtienen los datos del spf y la piel de la base de datos
       this.mainuser = afs.doc(`users/${user.getUID()}`)
       this.sub = this.mainuser.valueChanges().subscribe(event => {
         this.spf = event.spf
@@ -48,7 +48,7 @@ export class RemindersPage implements OnInit {
     this.ModalController.dismiss();
   }
 
-  timeConvert(n){
+  timeConvert(n){ //Función usada para visualizar la variable DEM en términos de horas y minutos
     var num = n;
     var hours = (num/60);
     var rhours = Math.floor(hours);
@@ -57,8 +57,8 @@ export class RemindersPage implements OnInit {
     return rhours + " hora(s) y " + rminutes + " minutos"
   }
 
-  Protection() {
-    this.userServ.serviceData.subscribe(data => (this.risk = data));
+  Protection() { //De acuerdo al riesgo dado por el índice UV presente, la piel y el spf que use el usuario, se calcurará la variable DEM
+    this.userServ.serviceData.subscribe(data => (this.risk = data)); //Se usa el ServicioService para traer la variable risk desde el Home
     if (this.skin == 'uno'){
       if(this.risk == 'Sin riesgo'){
         this.noRiesgo = true;
@@ -143,7 +143,7 @@ export class RemindersPage implements OnInit {
         this.DEM = (25*Number(this.spf)/30)
       }
     }
-    this.getDEM.changeDataDEM(this.DEM);
+    this.getDEM.changeDataDEM(this.DEM); //Se llevará la variable DEM a la página del Perfil para desplegar notificaciones, mediante el servicio GetDEMService
   }
   ngOnInit(){
   }
