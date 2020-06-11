@@ -18,7 +18,8 @@ export class AuthGuard implements CanActivate {
       next: ActivatedRouteSnapshot,
       state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
   
-        return this.AFauth.authState.pipe(map( auth => {
+        return this.AFauth.authState.pipe(map( auth => { //Mediante este Guard se permite que si el usuario ya se encuentra registrado, sin cerrar su sesión, pueda ser redirigido siempre al Home, 
+          //de lo contrario, permanecerá en el Login
   
           if(isNullOrUndefined(auth)){
             this.router.navigate(['/login']);

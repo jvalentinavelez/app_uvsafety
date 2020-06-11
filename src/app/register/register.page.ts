@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastController } from '@ionic/angular';
-
-//import { AuthenticationService } from '../services/authentication.service';
 import {UserinfoService} from '../services/userinfo.service';
 import { Router } from "@angular/router";
 
@@ -41,7 +39,7 @@ export class RegisterPage implements OnInit {
     this.disabledButton = false;
   }
 
-  async OnSubmitRegister(){
+  async OnSubmitRegister(){ //Se asegura que el usuario deba llenar todos los campos para registrarse
     if(this.name==""){
       this.presentToast("Su nombre es requerido");
     }else if(this.birthdate==""){
@@ -63,7 +61,7 @@ export class RegisterPage implements OnInit {
       this.disabledButton=true;
     
       const { email, password, name, skin, gender, birthdate, spf} = this
-      try{
+      try{ //Si no hay errores, se guardará en la base de datos de Firebase los datos preestablecidos: email, contraseña, nombre, piel, género, fecha de nacimiento y spf
         const res = await this.afAuth.auth.createUserWithEmailAndPassword(email,password)
         this.afstore.doc(`users/${res.user.uid}`).set({
           email,
@@ -79,7 +77,7 @@ export class RegisterPage implements OnInit {
         })
         this.router.navigate(['/home'])
       } 
-      catch(err) {
+      catch(err) { //Se desplegará una alerta en caso de que el email se encuentre en uso y en caso de que la contraseña sea muy corta
 			  console.dir(err)
   			if(err.code === "auth/email-already-in-use") {
   				this.presentToast("El email que ingresaste ya se encuentra en uso")
@@ -94,7 +92,7 @@ export class RegisterPage implements OnInit {
   }
 }
 
-async presentToast(a){
+async presentToast(a){ 
   const toast = await this.toastCtrl.create({
     message: a,
     duration: 1500,

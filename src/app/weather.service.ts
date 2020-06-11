@@ -10,13 +10,12 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class WeatherService {
-  //apiKey = 'c0d847632c4d6d82f0862729581b4514';
   url:any;
   constructor(public http: HttpClient) {
     console.log('Hello WeatherService Service');
-    this.url='https://api.weatherbit.io/v2.0/current?lat=';
+    this.url='https://api.weatherbit.io/v2.0/current?lat='; //Página de donde se obtienen los datos del clima
    }
-  getWeather(latitude:any,longitude:any,apiKey:any){
+  getWeather(latitude:any,longitude:any,apiKey:any){ //Requiere una latitud, longitud y una llave que se genera en el sitio
     return this.http.get(this.url+latitude+'&lon='+longitude+'&key='+apiKey);
   }
 }

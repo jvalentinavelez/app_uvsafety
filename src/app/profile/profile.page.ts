@@ -30,6 +30,7 @@ export class ProfilePage implements OnInit {
   spf:string;
   DEM="1";
   protection = false;
+  public isToggled: boolean;
 
   constructor(
     private afAuth : AngularFireAuth, 
@@ -41,27 +42,27 @@ export class ProfilePage implements OnInit {
     private localNotifications: LocalNotifications,
     private alertCtrl: AlertController,
     private getDEM: GetDEMService,
-    ) {
+    ) { //Permite que la notificación pueda ser visualizada en el centro de notificaciones y que al dar click pueda ser redirigida a la app
       this.plt.ready().then(()=> {
-        this.localNotifications.on('click').subscribe(res => {
+        this.localNotifications.on('click').subscribe(res => { 
           console.log('click: ',res);
           let msg = res.data ? res.data.mydata : '';
           this.showAlert(res.title, msg, res.text);
         })
-      });
+      }); //Permite visualizar la notificación como una alerta en la app
       this.plt.ready().then(()=> {
         this.localNotifications.on('trigger').subscribe(res => {
           let msg = res.data ? res.data.mydata : '';
           this.showAlert(res.title, msg,res.text);
         })
-      })
+      }) //Se accede a los datos del usuario almacenados en la base de datos
       this.mainuser = afs.doc(`users/${user.getUID()}`)
       this.sub = this.mainuser.valueChanges().subscribe(event => {
         this.name = event.name
         this.email = event.email
         this.skin = event.skin
         this.gender = event.gender
-        this.birthdate = event.birthdate.split("T")[0]
+        this.birthdate = event.birthdate.split("T")[0] //con el fin de visualizar la fecha de nacimiento sin el formato de tiempo UTC de Firebase
         this.spf = event.spf
       })
     }
@@ -71,9 +72,10 @@ export class ProfilePage implements OnInit {
   openEditProfile(){
     this.router.navigate(['edit-profile']);
   }
-  SolarProtNotifications(){
+  SolarProtNotifications(){ //Despliega la notificación del protector solar, haciendo uso de la variable this.DEM, que depende de la piel y el spf que ingrese el usuario
     this.userServ.serviceData.subscribe(data => (this.risk= data));
     //this.getDEM.serviceData.subscribe(data => (this.DEM= data))
+    this.isToggled= !this.isToggled;
     console.log(this.DEM);
     this.protection = !this.protection;
     this.localNotifications.schedule({
@@ -85,9 +87,9 @@ export class ProfilePage implements OnInit {
       trigger: {in: Number(this.DEM), unit: ELocalNotificationTriggerUnit.MINUTE}
     });
   }
-  CuidadosPersonalesNotifications(){
-    this.userServ.serviceData.subscribe(data => (this.risk = data));
-    if(this.risk == 'No hay riesgo'){
+  CuidadosPersonalesNotifications(){ //Despliega la notificación que alerta sobre el índice UV presente y sugiere las prendas recomendadas respectivamente
+    this.userServ.serviceData.subscribe(data => (this.risk = data)); //this. risk se obtiene de la página Home, para obtener dicho valor se usa el servicio ServicioService
+    if(this.risk == 'No hay riesgo'){ //La notificación depende del riesgo presente, this.risk 
       this.protection = !this.protection;
       this.localNotifications.schedule({
         id: 2,
@@ -141,7 +143,7 @@ export class ProfilePage implements OnInit {
         trigger: {in: 3, unit: ELocalNotificationTriggerUnit.SECOND}
       });
   }}
-  async showAlert(header, sub, msg) {
+  async showAlert(header, sub, msg) { //Creación de la alerta que se desplegará como notificación
     this.alertCtrl.create({
       header: header,
       subHeader: sub,

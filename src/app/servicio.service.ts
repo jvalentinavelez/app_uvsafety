@@ -12,6 +12,6 @@ export class ServicioService {
 	serviceData = this.dataSource.asObservable();
 
 	changeData(data: any){
-		this.dataSource.next(data);
+		this.dataSource.next(data); //Permite usar variables que se encuentra en .ts diferente al de trabajo
 	}
 }

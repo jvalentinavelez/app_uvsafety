@@ -41,7 +41,7 @@ export class EditProfilePage implements OnInit {
   ngOnDestroy() {
 		this.sub.unsubscribe()
   }
-  
+  //Se crea la alerta para indicar si se actualizó perfil o si se presentaron errores
   async presentAlert(title: string, content: string) {
 		const alert = await this.alertController.create({
 			header: title,
@@ -54,7 +54,7 @@ export class EditProfilePage implements OnInit {
 
   async updateDetails() {
 		this.busy = true
-
+		//Error si no se ingresa la contraseña
 		if(!this.password) {
 			this.busy = false
 			return this.presentAlert('¡Error!', '¡Debes ingresar tu contraseña')
@@ -62,15 +62,15 @@ export class EditProfilePage implements OnInit {
 
 		try {
 			await this.user.reAuth(this.user.getEmail(), this.password)
-		} catch(error) {
+		} catch(error) {//Error si se ingresa una contraseña incorrecta
 			this.busy = false
 			return this.presentAlert('¡Error!', '¡Contraseña equivocada!')
 		}
 
-		if(this.newpassword) {
+		if(this.newpassword) { //Permite actualizar la contraseña
 			await this.user.updatePassword(this.newpassword)
-    }
-    if(this.email !== this.user.getEmail()) {
+    } //Si el email ingresado es diferente al email guardado en la base de datos, se actualizará el email
+    if(this.email !== this.user.getEmail()) { 
 			await this.user.updateEmail(this.email)
 			this.mainuser.update({
 				email: this.email
